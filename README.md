@@ -22,12 +22,12 @@ always prefix this for every request or else you'll end up in version 0.1 which 
 
 1. [Preface](#preface)
 2. [Account](#account)
-3. [User](#User)
-4. [Action](#Action)
-5. [Podcast](#Podcast)
-6. [Episode](#Episode)
-7. [Curation](#Curation)
-8. [Collection](#Collection)
+3. [User](#user)
+4. [Action](#action)
+5. [Podcast](#podcast)
+6. [Episode](#episode)
+7. [Curation](#curation)
+8. [Collection](#collection)
 
 ---
 
