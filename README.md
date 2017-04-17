@@ -20,8 +20,8 @@ always prefix this for every request or else you'll end up in version 0.1 which 
 
 ## Table of contents
 
-1. [Preface](#Preface)
-2. [Account](#Account)
+1. [Preface](#preface)
+2. [Account](#account)
 3. [User](#User)
 4. [Action](#Action)
 5. [Podcast](#Podcast)
