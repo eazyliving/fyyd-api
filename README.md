@@ -274,7 +274,7 @@ Retrieves the curations maintained by the given user. You may append /episodes t
 
 #### Parameters
 
-- **id (required, int)** the users account id 
+- **user_id (required, int)** the users account id 
 - **or nick (optional, string)** identifies the user by nick
 
 #### Response
@@ -324,7 +324,7 @@ Retrieves the collections maintained by the given user. You may append /podcasts
 
 #### Parameters
 
-- **id (required, int)** the users account id
+- **user_id (required, int)** the users account id
 - **or nick (optional, string)** identifies the user by nick
 
 #### Response
@@ -415,7 +415,7 @@ Additionally you can address the resultset with {page} and {count}.
 
 #### Parameters
 
-- **id (required, int)** the Podcast's id
+- **podcast_id (required, int)** the Podcast's id
 - **page (optional, int)** the page you want to address, default: 0
 - **count (optional,int)** the pages size, default: 50
 
@@ -479,7 +479,7 @@ At the moment, 'check' is the only action to perform. This triggers an update wi
 
 #### Parameters
 
-- **id (required, int)** the Podcast's id
+- **podcast_id (required, int)** the Podcast's id
 - **action (required, string)** the action to perform:
   * **check** 
 
@@ -501,7 +501,6 @@ Please note that this request is the plural form of podcast, podcasts  ;-)
 
 #### Parameters
 
-- **id (required, int)** the Podcast's id
 - **page (optional, int)** the page you want to address, default: 0
 - **count (optional,int)** the pages size, default: 50
 
@@ -704,7 +703,7 @@ Retrieves the podcasts inside the specified category. The categories system refe
 
 #### Parameters
 
-* **id (required, int)** the category's id (see /categories)
+* **category_id (required, int)** the category's id (see /categories)
 * **page (optional, int)** the page you want to address, default: 0
 * **count (optional,int)** the pages size, default: 50
 
@@ -811,7 +810,7 @@ Returns information about a single episode
 
 #### Parameters
 
-- **id (required, int)** the episode's id
+- **episode_id (required, int)** the episode's id
 
 #### Response
 
@@ -853,7 +852,7 @@ Returns information about a single curation, given the curation's id. May append
 
 #### Parameters
 
-- **id (required, int)** the curation's id
+- **curation_id (required, int)** the curation's id
 
 #### Response
 
@@ -954,7 +953,7 @@ Returns information about a single collection, given the collection's id. May ap
 
 #### Parameters
 
-- **id (required, int)** the collection's id
+- **collection_id (required, int)** the collection's id
 
 #### Response
 
