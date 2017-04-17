@@ -8,6 +8,8 @@ This is the initial documentation for the API to fyyd, the podcast search engine
 
 Take my apologies for this simple markdown, I tried to use something more fancy, but I took an arrow to my knee.
 
+**Please be aware: This version is most likely to change in the very near future. It's my first kind of that API and I'm still learning how to do things the more or less correct way. All that works and all that is fine, but it may not be optimal. I want it to be at least near to optimal.**
+
 ---
 
 ## Endpoint for version 0.2
