@@ -32,6 +32,7 @@ always prefix this for every request or else you'll end up in version 0.1 which 
 6. [Episode](#episode)
 7. [Curations](#curations)
 8. [Collections](#collections)
+9. [Search](#search)
 
 ---
 
