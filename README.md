@@ -240,7 +240,7 @@ Retrieves the accounts profile information
 
 #### Parameters
 
-* **id (required, int)** the users account id
+* **user_id (required, int)** the users account id
 * **or nick (optional, string)** identifies the user by nick
 
 #### Response
