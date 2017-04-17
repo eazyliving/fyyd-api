@@ -1108,3 +1108,78 @@ In contrast to that, podcast_id and podcast_title restrict all episodes to podca
           }
       ]
     }
+
+
+### [GET /search/podcast]
+
+### Description
+
+This request tries to find a podcast inside fyyd's database, matching any or some of a set of given criteria.
+
+#### Parameters
+
+- **title (optional, string)** the podcasts's title. Search might use parts of the string to find the podcast.
+- **url (optional, string)** the podcast's url as stated inside the podcast's feed.
+- **term (optional,string)** a search term to find inside the podcast.
+
+Please note: title, url and term add episodes together. Think of an logical OR.
+
+- **count (optional, int, default: 10)** 
+
+#### Response
+
+    {
+      "status": 1,
+      "msg": "ok",
+      "meta": {
+          "API_INFO": {
+              "API_VERSION": 0.2
+          }
+      },
+      "data": [
+          {
+              "title": "Freak Show",
+              "id": 85,
+              "xmlURL": "https:\/\/feeds.metaebene.me\/freakshow\/m4a",
+              "htmlURL": "http:\/\/freakshow.fm",
+              "imgURL": "http:\/\/freakshow.fm\/wp-content\/cache\/podlove\/04\/662a9d4edcf77ea2abe3c74681f509\/freak-show_original.jpg",
+              "status": 390,
+              "slug": "freak-show",
+              "layoutImageURL": "https:\/\/img.fyyd.de\/pd\/layout\/85.jpg",
+              "thumbImageURL": "https:\/\/img.fyyd.de\/pd\/thumbs\/85.png",
+              "microImageURL": "https:\/\/img.fyyd.de\/pd\/micro\/85.png",
+              "language": "de",
+              "lastpoll": "2017-04-16 00:36:29",
+              "generator": "Podlove Podcast Publisher v2.5.0.build315",
+              "user_id": 1074,
+              "categories": "62,64,52,63",
+              "lastpub": "2017-04-13 02:03:27",
+              "rank": 32,
+              "url_fyyd": "https:\/\/fyyd.de\/podcast\/85",
+              "description": "Die muntere Talk Show um Leben mit Technik, das Netz und Technikkultur. Bisweilen Apple-lastig aber selten einseitig. Wir leben und lieben Technologie und reden dar\u00fcber. Mit Tim, hukl, roddi, Clemens und Denis. Freak Show hie\u00df irgendwann mal mobileMacs.",
+              "subtitle": "Menschen! Technik! Sensationen!"
+          },
+          {
+              "title": "Timmy Trumpet \u2013 Freak Show",
+              "id": 36645,
+              "xmlURL": "http:\/\/timmytrumpet.podtree.com\/feed\/podcast",
+              "htmlURL": "http:\/\/timmytrumpet.podtree.com",
+              "imgURL": "http:\/\/media2-timmytrumpet.podtree.com\/media\/itunes_image\/FreakShow_Radio_1400x1400.jpg",
+              "status": 304,
+              "slug": "timmy-trumpet-freak-show",
+              "layoutImageURL": "https:\/\/img.fyyd.de\/pd\/layout\/36645.jpg",
+              "thumbImageURL": "https:\/\/img.fyyd.de\/pd\/thumbs\/36645.png",
+              "microImageURL": "https:\/\/img.fyyd.de\/pd\/micro\/36645.png",
+              "language": "en",
+              "lastpoll": "2017-04-17 03:58:39",
+              "generator": "https:\/\/wordpress.org\/?v=4.5.2",
+              "user_id": null,
+              "categories": 38,
+              "lastpub": "2016-06-27 00:30:17",
+              "rank": 0,
+              "url_fyyd": "https:\/\/fyyd.de\/podcast\/36645",
+              "description": "Australia\u2019s #1 DJ \/ Multi-Platinum selling artist Timmy Trumpet presents a weekly mix of the hottest tracks, bootlegs, mashups and more! Put your headphones on and turn the world off. Subscribe now.\ntimmytrumpet.com\nfb.com\/timmytrumpet\nTwitter.com\/timmytrumpet",
+              "subtitle": "Timmy Trumpet - Freak Show\u2028"
+          }
+      ]
+    }
