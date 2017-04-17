@@ -26,8 +26,8 @@ always prefix this for every request or else you'll end up in version 0.1 which 
 4. [Action](#action)
 5. [Podcast](#podcast)
 6. [Episode](#episode)
-7. [Curation](#curation)
-8. [Collection](#collection)
+7. [Curation](#curations)
+8. [Collection](#collections)
 
 ---
 
