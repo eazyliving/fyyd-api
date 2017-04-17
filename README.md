@@ -922,6 +922,7 @@ Adds OR removes the episode identified by episode_id into the curation identifie
 
 - **curation_id (required, int)** the curation's id
 - **episode_id (required, int)** the episode's id
+- **why (optional, string)** a text to indicate, why you curate this episode
 
 #### Response
 
@@ -1064,8 +1065,6 @@ This request is the only one in this section for now. The search API will grow i
 This request tries to find an episode inside fyyd's database, matching any or some of a set of given criteria.
 
 This reflects Skoon's need to find an episode's id to add to the user's curation. 
-
-Since the parameters composition is too complex for a restful URL, you have to add queries. Remember to urlencode all strings or else you might break your requests.
 
 #### Parameters
 
