@@ -25,14 +25,15 @@ always prefix this for every request or else you'll end up in version 0.1 which 
 ## Table of contents
 
 1. [Preface](#preface)
-2. [Account](#account)
-3. [User](#user)
-4. [Action](#action)
-5. [Podcast](#podcast)
-6. [Episode](#episode)
-7. [Curations](#curations)
-8. [Collections](#collections)
-9. [Search](#search)
+2. [Authorization](#authorization)
+3. [Account](#account)
+4. [User](#user)
+5. [Action](#action)
+6. [Podcast](#podcast)
+7. [Episode](#episode)
+8. [Curations](#curations)
+9. [Collections](#collections)
+10. [Search](#search)
 
 ---
 
@@ -61,6 +62,66 @@ Thanks to all who helped, will help and contribute to this small project.
 ---
 
 
+
+# Authorization
+
+Authorization for 3rd party apps and services is provided with an oauth2 interface. At the moment this is a little bit rudimentary, but working.
+
+
+
+## App registration
+
+First step is to register your app at fyyd.de. At the time of writing this documentation (2017-04-17), you have to be a registered developer at fyyd. This is not a big deal as it might sound, but I'd like to know, who is using auth with the API and what happens. Just register an account at [fyyd.de](https://fyyd.de/user-new) and give me a short note that you'd like to use the API via [mail](#mailto:info@fyyd.de).
+
+When this is done, head to  [https://fyyd.de/dev/app/](https://fyyd.de/dev/app/) to create the app's registration at fyyd. 
+
+You then create the credentials and maybe an accesstoken (which only works on app context, which is non existent at this time).
+
+
+
+## Auth workflow
+
+### user context
+
+Head your client to **https://fyyd.de/oauth/authorize?client_id=XYZ** where client_id is your client's id (wow… ;)
+
+The user logs in (if neccessary) and authorizes the app.
+
+fyyd now redirects to your registered app's callback-URL, appending the token via #token=ACCESSTOKEN.
+
+In all future requests, add an authorization header:
+
+`Authorization: Bearer ACCESSTOKEN`
+
+
+
+### app context
+
+The authorization for application only level is working, but there is no use-case for that at the moment.
+
+The most simple way would to create the accesstoken directly at the developers page at fyyd. You may also send a POST request to https://fyyd.de/oauth/token, containing 
+
+`grant_type=client_credentials`
+
+inside the body.
+
+Additionally you need to either set 
+
+an Authorization Header like
+
+`Authorization: Basic base64encode($client_id:$client_secret)`
+
+(please: base64encode has to be calculated and not included in the headers…)
+
+or added as 
+
+`&client_id=$client_id&client_secret=$client_secret`
+
+in the requests body.
+
+
+
+---
 
 # Account
 
