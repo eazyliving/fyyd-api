@@ -8,6 +8,8 @@ This is the initial documentation for the API to fyyd, the podcast search engine
 
 Take my apologies for this simple markdown, I tried to use something more fancy, but I took an arrow to my knee.
 
+
+
 **Please be aware: This version is most likely to change in the very near future. It's my first kind of that API and I'm still learning how to do things the more or less correct way. All that works and all that is fine, but it may not be optimal. I want it to be at least near to optimal.**
 
 ---
@@ -230,7 +232,7 @@ Gets public available information about a registered account at fyyd
 
 
 
-### [GET /user/{id}]
+### [GET /user]
 
 #### Description
 
@@ -239,6 +241,7 @@ Retrieves the accounts profile information
 #### Parameters
 
 * **id (required, int)** the users account id
+* **or nick (optional, string)** identifies the user by nick
 
 #### Response
 
@@ -263,7 +266,7 @@ Retrieves the accounts profile information
     }
 
 
-### [GET /user/{id}/curations[/episodes]]
+### [GET /user/curations[/episodes]]
 
 #### Description
 
@@ -271,7 +274,8 @@ Retrieves the curations maintained by the given user. You may append /episodes t
 
 #### Parameters
 
-- **id (required, int)** the users account id
+- **id (required, int)** the users account id 
+- **or nick (optional, string)** identifies the user by nick
 
 #### Response
 
@@ -312,7 +316,7 @@ Retrieves the curations maintained by the given user. You may append /episodes t
     }
 
 
-### [GET /user/{id}/collections[/podcasts]]
+### [GET /user/collections[/podcasts]]
 
 #### Description
 
@@ -321,6 +325,7 @@ Retrieves the collections maintained by the given user. You may append /podcasts
 #### Parameters
 
 - **id (required, int)** the users account id
+- **or nick (optional, string)** identifies the user by nick
 
 #### Response
 
@@ -400,7 +405,7 @@ Returns 204 - No Content
 
 Retrieves information about a podcast
 
-### [GET /podcast/{id}[/episodes[/{page}[/{count}]]]]
+### [GET /podcast/[/episodes]]
 
 #### Description
 
@@ -464,7 +469,7 @@ Additionally you can address the resultset with {page} and {count}.
     }
 
 
-### [POST /podcast/{id}/action/{action}]
+### [POST /podcast/action]
 
 ### Description
 
@@ -484,7 +489,7 @@ returns a 204: No Content
 
 
 
-### [GET /podcasts[/{page}[/{count}]]]]
+### [GET /podcasts]
 
 #### Description
 
@@ -691,7 +696,7 @@ none
 
 
 
-### [GET /category/{id}[/{page}[/{count}]]]
+### [GET /category]
 
 ### Description
 
@@ -705,9 +710,11 @@ Retrieves the podcasts inside the specified category. The categories system refe
 
 #### Response
 
-    {
 
-     "status": 1,
+
+
+    {
+      "status": 1,
       "msg": "ok",
       "meta": {
           "paging": {
@@ -796,7 +803,7 @@ Retrieves the podcasts inside the specified category. The categories system refe
 
 Request to retrieve an episode's information
 
-### [GET /episode/{id}]
+### [GET /episode]
 
 ### Description
 
@@ -838,7 +845,7 @@ Returns information about a single episode
 
 All about Curations inside fyyd. Retrieve and set.
 
-### [GET /curation/{id}[/episodes]]
+### [GET /curation[/episodes]]
 
 ### Description
 
@@ -850,8 +857,8 @@ Returns information about a single curation, given the curation's id. May append
 
 #### Response
 
-    {
 
+    {
       "status": 1,
       "msg": "ok",
       "meta": {
@@ -905,7 +912,7 @@ Returns information about a single curation, given the curation's id. May append
     }
 
 
-### [POST /curate/{curation_id}/{episode_id}]
+### [POST /curate]
 
 ### Description
 
@@ -938,7 +945,7 @@ This part is all about collections at fyyd. The content part of collections are 
 
 
 
-### [GET /collection/{id}[/podcasts]]
+### [GET /collection[/podcasts]]
 
 ### Description
 
@@ -1017,7 +1024,7 @@ Returns information about a single collection, given the collection's id. May ap
     	}
     }
 
-### [POST /collect/{collection_id}/{podcast_id}]
+### [POST /collect]
 
 ### Description
 
