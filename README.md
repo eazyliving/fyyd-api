@@ -8,11 +8,9 @@ This is the initial documentation for the API to fyyd, the podcast search engine
 
 Take my apologies for this simple markdown, I tried to use something more fancy, but I took an arrow to my knee.
 
-
-
 **Please be aware: This version is most likely to change in the very near future. It's my first kind of that API and I'm still learning how to do things the more or less correct way. All that works and all that is fine, but it may not be optimal. I want it to be at least near to optimal.**
 
----
+
 
 ## Endpoint for version 0.2
 
@@ -430,7 +428,7 @@ Retrieves the collections maintained by the given user. You may append /podcasts
 
 This is the actions API to fyyd. It's a more or less formfree key-value-store.
 
-Requests for /action always refer to the user identified by the accesstoken.
+Requests for /action always refer to the user identified by the accesstoken and the used app.
 
 ### [POST /action]
 
@@ -459,6 +457,56 @@ The action itself is represented by a string you may choose freely. Some of thes
 
 Returns 204 - No Content
 
+
+
+### [GET /action]
+
+#### Description
+
+Gets all actions for the authorized user, triggered by the authorized app and filtered by the given criteria.
+
+#### Parameters
+
+- **object_id (optional, int)** the id of the object
+- **object_type (optional, string)** the type of the object. episode, podcast, curation, collection, user
+- **action (optional, string)** a free to choose action
+- **metadata (optional, string)** further data you'd like to associate to this action
+
+Choose one or more of these parameters. Providing none returns all actions issued by the logged in user with the authorized app.
+
+#### Response
+
+    {
+      "status": 1,
+      "msg": "ok",
+      "meta": {
+          "API_INFO": {
+              "API_VERSION": 0.2
+          }
+      },
+      "data": [
+          {
+              "id": 1,
+              "object_id": 85,
+              "object_type": "podcast",
+              "action": "test",
+              "metadata": "More data",
+              "date": "2017-04-17 20:04:22",
+              "user_id": 23,
+              "app_id": 42
+          },
+          {
+              "id": 2,
+              "object_id": 85,
+              "object_type": "podcast",
+              "action": "test",
+              "metadata": "More data, really!",
+              "date": "2017-04-17 20:09:01",
+              "user_id": 23,
+              "app_id": 42
+          }
+      ]
+    }
 ---
 
 
@@ -1138,7 +1186,7 @@ This reflects Skoon's need to find an episode's id to add to the user's curation
 * **url (optional, string)** the episode's url as stated inside the podcast's feed.
 * **term (optional,string)** a search term to find inside the episodes.
 
-Please note: title, guid, pubdate, duration, url and term add episodes together. Think of an logical OR.
+Please note: title, guid, pubdate, duration, url and term add episodes together. Think of a logical OR.
 
 In contrast to that, podcast_id and podcast_title restrict all episodes to podcasts matching to one of podcast_id or podcast_title.
 
@@ -1184,7 +1232,7 @@ This request tries to find a podcast inside fyyd's database, matching any or som
 - **url (optional, string)** the podcast's url as stated inside the podcast's feed.
 - **term (optional,string)** a search term to find inside the podcast.
 
-Please note: title, url and term add episodes together. Think of an logical OR.
+Please note: title, url and term add episodes together. Think of a logical OR.
 
 - **count (optional, int, default: 10)** 
 
