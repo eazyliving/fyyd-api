@@ -1,6 +1,6 @@
 # fyyd api
 
-Documentations version: 0.1
+Documentations version: 0.2
 
 ---
 
@@ -69,7 +69,7 @@ Authorization for 3rd party apps and services is provided with an oauth2 interfa
 
 ## App registration
 
-First step is to register your app at fyyd.de. At the time of writing this documentation (2017-04-17), you have to be a registered developer at fyyd. This is not a big deal as it might sound, but I'd like to know, who is using auth with the API and what happens. Just register an account at [fyyd.de](https://fyyd.de/user-new) and give me a short note that you'd like to use the API via [mail](#mailto:info@fyyd.de).
+First step is to register your app at fyyd.de. At the time of writing this documentation (2017-04-17), you have to be a registered developer at fyyd. This is not as a big deal as it might sound, but I'd like to know, who is using auth with the API and what happens. Just register an account at [fyyd.de](https://fyyd.de/user-new) and give me a short note that you'd like to use the API via [mail](#mailto:info@fyyd.de).
 
 When this is done, head to  [https://fyyd.de/dev/app/](https://fyyd.de/dev/app/) to create the app's registration at fyyd. 
 
@@ -121,7 +121,7 @@ in the requests body.
 
 # Account
 
-Requests for /account always refer to the user identified by the accesstoken.
+Requests for /account always refer to the user identified by the accesstoken. Thus, you of course need to authenticate to use this requests. All other requests are free until now.
 
 
 
@@ -340,7 +340,7 @@ Retrieves the accounts profile information
 
 #### Description
 
-Retrieves the curations maintained by the given user. You may append /episodes to also get the content of this curations.
+Retrieves the curations maintained by the given user. You may append /episodes to also get the content of this curations. If you're authenticated and you request your own curations, non-public curations will be included also.
 
 #### Parameters
 
@@ -563,7 +563,9 @@ Additionally you can address the resultset with {page} and {count}.
           "language": "de",
           "lastpoll": "2017-04-17 14:42:41",
           "generator": "firtz podcast publisher v2.0",
-          "categories": 52,
+          "categories": [
+                52
+            ],
           "lastpub": "2016-01-08 21:15:22",
           "rank": 22,
           "url_fyyd": "https:\/\/fyyd.de\/podcast\/64",
@@ -590,7 +592,7 @@ Additionally you can address the resultset with {page} and {count}.
 
 ### [POST /podcast/action]
 
-### Description
+#### Description
 
 Performes an action to a podcast owned by you (see claim-button on every podcast page).
 
@@ -658,7 +660,9 @@ The response includes data about the pagination.
               "language": "en",
               "lastpoll": "2017-04-16 00:34:49",
               "generator": null,
-               "categories": 52,
+              "categories": [
+                52
+           	  ],
               "lastpub": "2017-03-16 04:00:00",
               "rank": 1,
               "url_fyyd": "https:\/\/fyyd.de\/podcast\/1",
@@ -679,7 +683,9 @@ The response includes data about the pagination.
               "language": "en",
               "lastpoll": "2017-04-17 02:39:44",
               "generator": null,
-              "categories": "48,51,50",
+              "categories": [
+                      52
+               ],
               "lastpub": "2017-04-11 02:00:00",
               "rank": 1,
               "url_fyyd": "https:\/\/fyyd.de\/podcast\/3",
@@ -698,7 +704,7 @@ Additionally links inside the header are provided:
 
 ### [GET /categories]
 
-### Description
+#### Description
 
 Gets the complete categories tree
 
@@ -814,7 +820,7 @@ none
 
 ### [GET /category]
 
-### Description
+#### Description
 
 Retrieves the podcasts inside the specified category. The categories system referres to Apple's iTunes Categories. Categories not in Apple's specification are ignored on import.
 
@@ -871,7 +877,9 @@ Retrieves the podcasts inside the specified category. The categories system refe
                   "language": "de",
                   "lastpoll": "2017-04-16 00:36:11",
                   "generator": "Podlove Podcast Publisher v2.4.1",
-                  "categories": "57,21,61",
+                  "categories": [
+                      52
+                  ],
                   "lastpub": "2017-04-11 21:14:53",
                   "rank": 1,
                   "url_fyyd": "https:\/\/fyyd.de\/podcast\/170",
@@ -892,7 +900,9 @@ Retrieves the podcasts inside the specified category. The categories system refe
                   "language": "de",
                   "lastpoll": "2017-04-17 16:12:25",
                   "generator": "Podlove Podcast Publisher v2.3.8",
-                  "categories": "57,61,58",
+                  "categories": [
+                      52
+                  ],
                   "lastpub": "2016-11-15 08:53:35",
                   "rank": 10,
                   "url_fyyd": "https:\/\/fyyd.de\/podcast\/296",
@@ -943,7 +953,9 @@ Gets information about what fyyd thinks, might be a good idea to listen to also.
             "lastpoll": "2017-04-23 10:13:56",
             "generator": "Podlove Podcast Publisher v2.3.18",
             "user_id": null,
-            "categories": "52,55",
+            "categories": [
+                  52
+             ],
             "lastpub": "2017-04-20 00:01:21",
             "rank": 29,
             "url_fyyd": "https:\/\/fyyd.de\/podcast\/158",
@@ -964,7 +976,7 @@ Request to retrieve an episode's information
 
 ### [GET /episode]
 
-### Description
+#### Description
 
 Returns information about a single episode
 
@@ -1006,9 +1018,11 @@ All about Curations inside fyyd. Retrieve and set.
 
 ### [GET /curation[/episodes]]
 
-### Description
+#### Description
 
-Returns information about a single curation, given the curation's id. May append episodes, not paged at the moment.
+Returns information about a single curation, given the curation's id. May append episodes, not paged at the moment. If you're authenticated and you request your own curation, non-public curations will be accessable too.
+
+
 
 #### Parameters
 
@@ -1071,9 +1085,48 @@ Returns information about a single curation, given the curation's id. May append
     }
 
 
+
+### [POST /curation]
+
+#### Description
+
+Creates or modifies a curation. 
+
+#### Parameters
+
+- **curation_id (opt, int)** when set, an existing curation is modified
+- **title (req when created, string)** the title to set for this curation
+- **description (opt, string)** the description for this curation
+- **slug (opt, string)** the slug to set for this curation. If not set while creation, the title will be slugified. *When set, but empty while modifying a curation, also a slugified title will overwrite the existing slug*.
+- **public (opt, def: 0)** defines, if this curation will be set to public and thus accessable for all.
+
+#### Response
+
+While modifying a curation, this returns 204: No content
+
+Creating a curation returns the complete object of the new curation as in GET /curation.
+
+
+
+### [POST /curation/delete]
+
+#### Description
+
+Deletes a curation. Please note: there's no coming back, no questions, no backup. It's deleted!
+
+#### Parameters
+
+- **curation_id (req, int)** when set, an existing curation is modified
+
+#### Response
+
+returns 204: No content
+
+
+
 ### [POST /curate]
 
-### Description
+#### Description
 
 Adds OR removes the episode identified by episode_id into the curation identified by curation_id. The curation must be owned by the user identified by the accesstoken. The status of the episode inside this curation toggles. This will most likely change in future revisions of this API or at least will be detailed by two additional request.
 
@@ -1107,7 +1160,7 @@ This part is all about collections at fyyd. The content part of collections are 
 
 ### [GET /collection[/podcasts]]
 
-### Description
+#### Description
 
 Returns information about a single collection, given the collection's id. May append podcasts, not paged at the moment.
 
@@ -1150,8 +1203,9 @@ Returns information about a single collection, given the collection's id. May ap
                   "language": "de",
                   "lastpoll": "2017-04-17 05:20:40",
                   "generator": null,
-                  "user_id": null,
-                  "categories": "62,64,63,8,9",
+                  "categories": [
+                      52
+                  ],
                   "lastpub": "2017-04-13 02:00:00",
                   "rank": 1,
                   "url_fyyd": "https:\/\/fyyd.de\/podcast\/5037",
@@ -1172,8 +1226,9 @@ Returns information about a single collection, given the collection's id. May ap
                   "language": "de",
                   "lastpoll": "2017-04-17 17:12:06",
                   "generator": null,
-                  "user_id": null,
-                  "categories": 62,
+                  "categories": [
+                      52
+                  ],
                   "lastpub": "2017-04-15 13:05:01",
                   "rank": 14,
                   "url_fyyd": "https:\/\/fyyd.de\/podcast\/503",
@@ -1184,9 +1239,48 @@ Returns information about a single collection, given the collection's id. May ap
     	}
     }
 
+
+
+### [POST /collection]
+
+#### Description
+
+Creates or modifies a collection. 
+
+#### Parameters
+
+- **collection_id (opt, int)** when set, an existing collection is modified
+- **title (req when created, string)** the title to set for this collection
+- **description (opt, string)** the description for this collection
+- **slug (opt, string)** the slug to set for this collection. If not set while creation, the title will be slugified. *When set, but empty while modifying a collection, also a slugified title will overwrite the existing slug*.
+
+#### Response
+
+While modifying a collection, this returns 204: No content
+
+Creating a collection returns the complete object of the new collection as in GET /collection.
+
+
+
+### [POST /collection/delete]
+
+#### Description
+
+Deletes a collection. Please note: there's no coming back, no questions, no backup. It's deleted!
+
+#### Parameters
+
+- **collection_id (req, int)** 
+
+#### Response
+
+returns 204: No content
+
+
+
 ### [POST /collect]
 
-### Description
+#### Description
 
 Adds OR removes the podcast identified by podcast_id into the collection identified by collection_id. The collection must be owned by the user identified by the accesstoken. The status of the podcast inside this collection toggles. This will most likely change in future revisions of this API or at least will be detailed by two additional request.
 
@@ -1219,7 +1313,7 @@ This request is the only one in this section for now. The search API will grow i
 
 ### [GET /search/episode]
 
-### Description
+#### Description
 
 This request tries to find an episode inside fyyd's database, matching any or some of a set of given criteria.
 
@@ -1272,7 +1366,7 @@ In contrast to that, podcast_id and podcast_title restrict all episodes to podca
 
 ### [GET /search/podcast]
 
-### Description
+#### Description
 
 This request tries to find a podcast inside fyyd's database, matching any or some of a set of given criteria.
 
@@ -1311,7 +1405,10 @@ Please note: title, url and term add episodes together. Think of a logical OR.
               "language": "de",
               "lastpoll": "2017-04-16 00:36:29",
               "generator": "Podlove Podcast Publisher v2.5.0.build315",
-              "categories": "62,64,52,63",
+              "categories": [
+                      52,
+                      61
+                  ],
               "lastpub": "2017-04-13 02:03:27",
               "rank": 32,
               "url_fyyd": "https:\/\/fyyd.de\/podcast\/85",
@@ -1341,4 +1438,3 @@ Please note: title, url and term add episodes together. Think of a logical OR.
           }
       ]
     }
- 
