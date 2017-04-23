@@ -91,8 +91,6 @@ In all future requests, add an authorization header:
 
 `Authorization: Bearer ACCESSTOKEN`
 
-
-
 ### app context
 
 The authorization for application only level is working, but there is no use-case for that at the moment.
@@ -137,6 +135,10 @@ Returns general information about the account
 
 none
 
+#### Authorization
+
+required
+
 #### Response
 
 	{
@@ -170,6 +172,10 @@ Returns this account's curations. Includes non-public curations as well.
 #### Parameters
 
 none
+
+#### Authorization
+
+required
 
 #### Response
 
@@ -235,6 +241,10 @@ Returns this account's collections.
 #### Parameters
 
 none
+
+#### Authorization
+
+required
 
 #### Response
 
@@ -553,7 +563,6 @@ Additionally you can address the resultset with {page} and {count}.
           "language": "de",
           "lastpoll": "2017-04-17 14:42:41",
           "generator": "firtz podcast publisher v2.0",
-          "user_id": 1000,
           "categories": 52,
           "lastpub": "2016-01-08 21:15:22",
           "rank": 22,
@@ -649,8 +658,7 @@ The response includes data about the pagination.
               "language": "en",
               "lastpoll": "2017-04-16 00:34:49",
               "generator": null,
-              "user_id": null,
-              "categories": 52,
+               "categories": 52,
               "lastpub": "2017-03-16 04:00:00",
               "rank": 1,
               "url_fyyd": "https:\/\/fyyd.de\/podcast\/1",
@@ -671,7 +679,6 @@ The response includes data about the pagination.
               "language": "en",
               "lastpoll": "2017-04-17 02:39:44",
               "generator": null,
-              "user_id": null,
               "categories": "48,51,50",
               "lastpub": "2017-04-11 02:00:00",
               "rank": 1,
@@ -820,8 +827,6 @@ Retrieves the podcasts inside the specified category. The categories system refe
 #### Response
 
 
-
-
     {
       "status": 1,
       "msg": "ok",
@@ -866,7 +871,6 @@ Retrieves the podcasts inside the specified category. The categories system refe
                   "language": "de",
                   "lastpoll": "2017-04-16 00:36:11",
                   "generator": "Podlove Podcast Publisher v2.4.1",
-                  "user_id": null,
                   "categories": "57,21,61",
                   "lastpub": "2017-04-11 21:14:53",
                   "rank": 1,
@@ -888,7 +892,6 @@ Retrieves the podcasts inside the specified category. The categories system refe
                   "language": "de",
                   "lastpoll": "2017-04-17 16:12:25",
                   "generator": "Podlove Podcast Publisher v2.3.8",
-                  "user_id": null,
                   "categories": "57,61,58",
                   "lastpub": "2016-11-15 08:53:35",
                   "rank": 10,
@@ -902,7 +905,54 @@ Retrieves the podcasts inside the specified category. The categories system refe
 
 
 
+### [GET /podcast/recommend]
 
+#### Description
+
+Gets information about what fyyd thinks, might be a good idea to listen to also. At the moment, this is based on collections information.
+
+#### Parameters
+
+- **podcast_id (required, int)** the Podcast's id
+- **count (optional,int)** the number of recommended podcasts, default: 10
+
+#### Response
+
+```
+{
+    "status": 1,
+    "msg": "ok",
+    "meta": {
+        "API_INFO": {
+            "API_VERSION": 0.2
+        }
+    },
+    "data": [
+        {
+            "title": "Explikator",
+            "id": 158,
+            "xmlURL": "http:\/\/explikator.de\/feed\/podcast\/",
+            "htmlURL": "http:\/\/explikator.de\/podcast",
+            "imgURL": "http:\/\/explikator.de\/wp-content\/cache\/podlove\/ed\/92555a31e2f10f4922dd5b5b8b2b77\/explikator_original.png",
+            "status": 304,
+            "slug": "explikator",
+            "layoutImageURL": "https:\/\/img.fyyd.de\/pd\/layout\/158.jpg",
+            "thumbImageURL": "https:\/\/img.fyyd.de\/pd\/thumbs\/158.png",
+            "microImageURL": "https:\/\/img.fyyd.de\/pd\/micro\/158.png",
+            "language": "de",
+            "lastpoll": "2017-04-23 10:13:56",
+            "generator": "Podlove Podcast Publisher v2.3.18",
+            "user_id": null,
+            "categories": "52,55",
+            "lastpub": "2017-04-20 00:01:21",
+            "rank": 29,
+            "url_fyyd": "https:\/\/fyyd.de\/podcast\/158",
+            "description": "Jeden Werktag 10 Minuten Podcast und ein neuer Musiktitel. Themen sind Wissenschaft, Bewusstsein, Geschichte, Film & TV und Entertainment. Unbekanntes & Unbeachtetes, Hintergrund & Oberfl\u00e4che. Mal ernster, mal satirischer aber immer Morgen-Kaffee-tauglich!",
+            "subtitle": "Morgenradio 2.0: Jeden Werktag 10 Minuten Unbeachtetes & Unbekanntes aus Gesellschaft und Kultur."
+        } 
+    ]
+}
+```
 
 ---
 
@@ -1261,7 +1311,6 @@ Please note: title, url and term add episodes together. Think of a logical OR.
               "language": "de",
               "lastpoll": "2017-04-16 00:36:29",
               "generator": "Podlove Podcast Publisher v2.5.0.build315",
-              "user_id": 1074,
               "categories": "62,64,52,63",
               "lastpub": "2017-04-13 02:03:27",
               "rank": 32,
@@ -1283,7 +1332,6 @@ Please note: title, url and term add episodes together. Think of a logical OR.
               "language": "en",
               "lastpoll": "2017-04-17 03:58:39",
               "generator": "https:\/\/wordpress.org\/?v=4.5.2",
-              "user_id": null,
               "categories": 38,
               "lastpub": "2016-06-27 00:30:17",
               "rank": 0,
