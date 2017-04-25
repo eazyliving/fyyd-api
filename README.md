@@ -1099,7 +1099,7 @@ Creates or modifies a curation.
 - **description (opt, string)** the description for this curation
 - **slug (opt, string)** the slug to set for this curation. If not set while creation, the title will be slugified. *When set, but empty while modifying a curation, also a slugified title will overwrite the existing slug*.
 - **public (opt, def: 0)** defines, if this curation will be set to public and thus accessable for all.
-- **image (opt, binary)** upload an optional image for the curation. Use multipart/form-data ([RFC 2388](http://www.ietf.org/rfc/rfc2388.txt))
+- **image (opt, binary)** upload an optional image for the curation. Use multipart/form-data ([RFC 2388](http://www.ietf.org/rfc/rfc2388.txt)) and provide a content-type.
 
 #### Response
 
@@ -1252,7 +1252,7 @@ Creates or modifies a collection.
 - **title (req when created, string)** the title to set for this collection
 - **description (opt, string)** the description for this collection
 - **slug (opt, string)** the slug to set for this collection. If not set while creation, the title will be slugified. *When set, but empty while modifying a collection, also a slugified title will overwrite the existing slug*.
-- **image (opt, binary)** upload an optional image for the collection.  Use multipart/form-data ([RFC 2388](http://www.ietf.org/rfc/rfc2388.txt))
+- **image (opt, binary)** upload an optional image for the collection.  Use multipart/form-data ([RFC 2388](http://www.ietf.org/rfc/rfc2388.txt)) and provide a content-type.
 
 #### Response
 
