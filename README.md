@@ -481,6 +481,8 @@ Gets all actions for the authorized user, triggered by the authorized app and fi
 - **object_type (optional, string)** the type of the object. episode, podcast, curation, collection, user
 - **action (optional, string)** a free to choose action
 - **metadata (optional, string)** further data you'd like to associate to this action
+- **date_start (optional, date string)** optional start date for this query
+- **date_end (optional, date string)** optional end date for this query
 
 Choose one or more of these parameters. Providing none returns all actions issued by the logged in user with the authorized app.
 
