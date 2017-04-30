@@ -1,3 +1,5 @@
+
+
 # fyyd api
 
 Documentations version: 0.2
@@ -484,7 +486,7 @@ Gets all actions for the authorized user, triggered by the authorized app and fi
 - **date_start (optional, date string)** optional start date for this query
 - **date_end (optional, date string)** optional end date for this query
 
-Choose one or more of these parameters. Providing none returns all actions issued by the logged in user with the authorized app.
+Choose one or more of these parameters. Providing none of them returns all actions issued by the logged in user with the authorized app.
 
 #### Response
 
@@ -537,9 +539,9 @@ Additionally you can address the resultset with {page} and {count}.
 
 #### Parameters
 
-- **podcast_id (required, int)** the Podcast's id
+- **podcast_id (required, int)** the podcast's id
 - **page (optional, int)** the page you want to address, default: 0
-- **count (optional,int)** the pages size, default: 50
+- **count (optional,int)** the page's size, default: 50
 
 #### Response
 
@@ -602,7 +604,7 @@ At the moment, 'check' is the only action to perform. This triggers an update wi
 
 #### Parameters
 
-- **podcast_id (required, int)** the Podcast's id
+- **podcast_id (required, int)** the podcast's id
 - **action (required, string)** the action to perform:
   * **check** 
 
@@ -625,7 +627,7 @@ Please note that this request is the plural form of podcast, podcasts  ;-)
 #### Parameters
 
 - **page (optional, int)** the page you want to address, default: 0
-- **count (optional,int)** the pages size, default: 50
+- **count (optional,int)** the page's size, default: 50
 
  #### Response
 
@@ -830,7 +832,7 @@ Retrieves the podcasts inside the specified category. The categories system refe
 
 * **category_id (required, int)** the category's id (see /categories)
 * **page (optional, int)** the page you want to address, default: 0
-* **count (optional,int)** the pages size, default: 50
+* **count (optional,int)** the page's size, default: 50
 
 #### Response
 
@@ -1129,26 +1131,64 @@ returns 204: No content
 
 #### Description
 
-Adds OR removes the episode identified by episode_id into the curation identified by curation_id. The curation must be owned by the user identified by the accesstoken. The status of the episode inside this curation toggles. This will most likely change in future revisions of this API or at least will be detailed by two additional request.
+Adds OR removes the episode identified by episode_id into the curation identified by curation_id. The curation must be owned by the user identified by the accesstoken. The state of the episode inside this curation toggles with each call, the state is returned inside response's data section.
+
+If you want to enforce a state without knowing what state the episode had before, use **force_state**.
 
 #### Parameters
 
 - **curation_id (required, int)** the curation's id
 - **episode_id (required, int)** the episode's id
 - **why (optional, string)** a text to indicate, why you curate this episode
+- **force_state (optional, bool)** enforce adding or removing the episode from the curation
 
 #### Response
 
     {
-      "status": 1,
-      "msg": "ok",
-      "meta": {
-          "API_INFO": {
-              "API_VERSION": 0.2
-          }
-      },
-      "data": "added Seitenwechsel - Ihr k\u00f6nnt mich mal 22.01.2016 (PODCAST) to Testfeed"
+        "status": 1,
+        "msg": "ok",
+        "meta": {
+            "API_INFO": {
+                "API_VERSION": 0.2
+            }
+        },
+        "data": {
+            "state": 1,
+            "text": "added AdH039: Singende Nonne to TestKuration"
+        }
     }
+
+
+### [GET /curate]
+
+#### Description
+
+Retuns the state of the curation of an episode in a curation.
+
+#### Parameters
+
+- **curation_id (required, int)** the curation's id
+- **episode_id (required, int)** the episode's id
+
+#### Response
+
+```
+{
+    "status": 1,
+    "msg": "ok",
+    "meta": {
+        "API_INFO": {
+            "API_VERSION": 0.2
+        }
+    },
+    "data": {
+        "state": 1
+    }
+}
+```
+
+
+
 ---
 
 
@@ -1282,28 +1322,69 @@ returns 204: No content
 
 #### Description
 
-Adds OR removes the podcast identified by podcast_id into the collection identified by collection_id. The collection must be owned by the user identified by the accesstoken. The status of the podcast inside this collection toggles. This will most likely change in future revisions of this API or at least will be detailed by two additional request.
+Adds OR removes the podcast identified by podcast_id into the collection identified by collection_id. The collection must be owned by the user identified by the accesstoken. The status of the podcast inside this collection toggles. 
+
+If you want to enforce a state without knowing what state the podcast had before, use **force_state**.
 
 #### Parameters
 
 - **collection_id (required, int)** the collection's id
-
 - **podcast_id (required, int)** the podcasts's id 
+- **force_state (optional, bool)** enforce adding or removing the podcast from the collection.
 
 
 #### Response
 
     {
-      "status": 1,
-      "msg": "ok",
-      "meta": {
-          "API_INFO": {
-              "API_VERSION": 0.2
-          }
-      },
-      "data": "added (or removed?) Freak Show to Gamechanger"
+        "status": 1,
+        "msg": "ok",
+        "meta": {
+            "API_INFO": {
+                "API_VERSION": 0.2
+            }
+        },
+        "data": {
+            "state": 1,
+            "text": "added Auf dem Holzweg to Gamechanger"
+        }
     }
+
+
+### [GET /collect]
+
+#### Description
+
+Retuns the state of the collection of a podcast in a collection.
+
+#### Parameters
+
+- **collection_id (required, int)** the collection's id
+- **podcast_id (required, int)** the podcast's id
+
+#### Response
+
+```
+{
+    "status": 1,
+    "msg": "ok",
+    "meta": {
+        "API_INFO": {
+            "API_VERSION": 0.2
+        }
+    },
+    "data": {
+        "state": 1
+    }
+}
+```
+
+
+
+
+
 ---
+
+
 
 
 
@@ -1322,7 +1403,7 @@ This reflects Skoon's need to find an episode's id to add to the user's curation
 #### Parameters
 
 * **title (optional, string)** the episode's title. Search might use parts of the string to find the episode.
-* **guid (optional, string)** the episodes GUID as stated inside the podcasts feed.
+* **guid (optional, string)** the episode's GUID as stated inside the podcasts feed.
 * **podcast_id (optional, int)** the podcast's id in fyyd's database.
 * **podcast_title (optional, string)** the podcast's title. Search might use parts of the string to find the podcast.
 * **pubdate (optional, string)** the pubDate as stated inside the podcasts feed.
