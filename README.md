@@ -1,16 +1,18 @@
-
-
 # fyyd api
 
 Documentations version: 0.2
 
 ---
 
-This is the initial documentation for the API to fyyd, the podcast search engine, directory and slow cooker.
+This is the documentation for the API to fyyd, the podcast search engine, directory and slow cooker.
 
 Take my apologies for this simple markdown, I tried to use something more fancy, but I took an arrow to my knee.
 
-**Please be aware: This version is most likely to change in the very near future. It's my first kind of that API and I'm still learning how to do things the more or less correct way. All that works and all that is fine, but it may not be optimal. I want it to be at least near to optimal.**
+**~~Please be aware: This version is most likely to change in the very near future. It's my first kind of that API and I'm still learning how to do things the more or less correct way. All that works and all that is fine, but it may not be optimal. I want it to be at least near to optimal.~~**
+
+**Version 0.2 is now fixed and nailed to the wall. What does that mean? It means, that requests, parameters and responses won't change for that version and applications and scripts will not face substantial modifications, rendering them inoperabel. What will happen though, is that requests and parameters will be added and additional data inside responses will occur, as long as these changes don't touch functionality.**
+
+**Bugs or inconsistencies, flaws and so on will stay forever with v0.2, but may be addressed by additional requests or responses. Whatever I learn with this version will find it's way into 0.3 or whatever I'll number the next substantial release.**
 
 
 
@@ -53,9 +55,7 @@ As I started fyyd, I knew that an API would be crucial for this project to escap
 
 Version 0.1 of that API found it's way to a small group of developers, leading into the development of [Skoon](https://skoon.stefantrauth.de), an iOS-App to curate podcast's episodes directly from some podcatchers and the integration of fyyd into [podcat](http://www.podc.at/), a lovely designed podcatcher that pleasantly differs from most machine like user interfaces. 
 
-Version 0.1 had its problems and was a rush job. Thanks to Jeanette and Stefan here and now you see the documentation for version 0.2, that at the moment has no additional features, but recieved a rewrite to be more logical and safe.
-
-
+Version 0.1 had its problems and was a rush job. Thanks to Jeanette and Stefan here and now you see the documentation for version 0.2.
 
 Thanks to all who helped, will help and contribute to this small project.
 
