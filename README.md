@@ -199,6 +199,7 @@ required
             "thumbImageURL": "https:\/\/img.fyyd.de\/curation\/thumbs\/1099.png",
             "microImageURL": "https:\/\/img.fyyd.de\/curation\/micro\/1099.png",
             "public": 0,
+            "type": 1,
             "slug": "retro-computing",
             "url": "https:\/\/fyyd.de\/user\/eazy\/curation\/retro-computing",
             "xmlURL": "https:\/\/feeds.fyyd.de\/eazy\/retro-computing"
@@ -211,6 +212,7 @@ required
             "thumbImageURL": "https:\/\/img.fyyd.de\/curation\/thumbs\/623.png",
             "microImageURL": "https:\/\/img.fyyd.de\/curation\/micro\/623.png",
             "public": 1,
+            "type": 1,
             "slug": "netzpolitik",
             "url": "https:\/\/fyyd.de\/user\/eazy\/curation\/netzpolitik",
             "xmlURL": "https:\/\/feeds.fyyd.de\/eazy\/netzpolitik"
@@ -223,6 +225,7 @@ required
             "thumbImageURL": "https:\/\/img.fyyd.de\/curation\/thumbs\/586.png",
             "microImageURL": "https:\/\/img.fyyd.de\/curation\/micro\/586.png",
             "public": 1,
+            "type": 1,
             "slug": "podcasting",
             "url": "https:\/\/fyyd.de\/user\/eazy\/curation\/podcasting",
             "xmlURL": "https:\/\/feeds.fyyd.de\/eazy\/podcasting"
@@ -368,6 +371,7 @@ Retrieves the curations maintained by the given user. You may append /episodes t
               "thumbImageURL": "https:\/\/img.fyyd.de\/curation\/thumbs\/623.png",
               "microImageURL": "https:\/\/img.fyyd.de\/curation\/micro\/623.png",
               "public": 1,
+              "type": 1,
               "slug": "netzpolitik",
               "url": "https:\/\/fyyd.de\/user\/eazy\/curation\/netzpolitik",
               "xmlURL": "https:\/\/feeds.fyyd.de\/eazy\/netzpolitik"
@@ -380,6 +384,7 @@ Retrieves the curations maintained by the given user. You may append /episodes t
               "thumbImageURL": "https:\/\/img.fyyd.de\/curation\/thumbs\/586.png",
               "microImageURL": "https:\/\/img.fyyd.de\/curation\/micro\/586.png",
               "public": 1,
+              "type": 1,
               "slug": "podcasting",
               "url": "https:\/\/fyyd.de\/user\/eazy\/curation\/podcasting",
               "xmlURL": "https:\/\/feeds.fyyd.de\/eazy\/podcasting"
@@ -1051,6 +1056,7 @@ Returns information about a single curation, given the curation's id. May append
           "thumbImageURL": "https:\/\/fyyd.de\/images\/curation80.png",
           "microImageURL": "https:\/\/fyyd.de\/images\/curation20.png",
           "public": 1,
+          "type": 1,
           "slug": "testfeed",
           "user_id": 1000,
           "url": "https:\/\/fyyd.de\/user\/eazy\/curation\/testfeed",
@@ -1117,9 +1123,11 @@ Creating and mofiying a curation returns the complete object of the curation as 
 
 Deletes a curation. Please note: there's no coming back, no questions, no backup. It's deleted!
 
+Please note also: You cannot delete your very own personal curation, it's tied to your account.
+
 #### Parameters
 
-- **curation_id (req, int)** when set, an existing curation is modified
+- **curation_id (req, int)** the id of the curation you want to delete
 
 #### Response
 
@@ -1310,7 +1318,7 @@ Deletes a collection. Please note: there's no coming back, no questions, no back
 
 #### Parameters
 
-- **collection_id (req, int)** 
+- **collection_id (req, int)** the ID of the collection you want to delete
 
 #### Response
 
@@ -1322,7 +1330,7 @@ returns 204: No content
 
 #### Description
 
-Adds OR removes the podcast identified by podcast_id into the collection identified by collection_id. The collection must be owned by the user identified by the accesstoken. The status of the podcast inside this collection toggles. 
+Adds OR removes the podcast identified by podcast_id into or from the collection identified by collection_id. The collection must be owned by the user identified by the accesstoken. The status of the podcast inside this collection toggles. 
 
 If you want to enforce a state without knowing what state the podcast had before, use **force_state**.
 
