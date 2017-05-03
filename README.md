@@ -28,14 +28,15 @@ always prefix this for every request or else you'll end up in version 0.1 which 
 
 1. [Preface](#preface)
 2. [Authorization](#authorization)
-3. [Account](#account)
-4. [User](#user)
-5. [Action](#action)
-6. [Podcast](#podcast)
-7. [Episode](#episode)
-8. [Curations](#curations)
-9. [Collections](#collections)
-10. [Search](#search)
+3. [Error Handling](#Error Handling)
+4. [Account](#account)
+5. [User](#user)
+6. [Action](#action)
+7. [Podcast](#podcast)
+8. [Episode](#episode)
+9. [Curations](#curations)
+10. [Collections](#collections)
+11. [Search](#search)
 
 ---
 
@@ -120,6 +121,97 @@ in the requests body.
 
 
 ---
+
+
+
+# Error Handling
+
+In case an error occurs, the API repsonses with an appropriate HTTP status code and, in case it's not a 404, a more or less helpful msg along inside a JSON object.
+
+What could possibly go wrong? Here are some examples:
+
+## Examples
+
+### Missing authorization
+
+```
+{
+    "errors": {
+        "code": 0,
+        "message": "not authorized!",
+        "http_code": 401,
+        "http_message": "HTTP 401 (GET \/0.2\/account\/info)"
+    },
+    "meta": {
+        "API_INFO": {
+            "API_VERSION": 0.2
+        }
+    }
+}
+```
+
+
+
+### Doing smth really forbidden
+
+```
+{
+  "errors": {
+    "code": 0,
+    "message": "this is a personal feed and cannot be deleted",
+    "http_code": 403,
+    "http_message": "HTTP 403 (POST /0.2/curation/delete)"
+  },
+  "meta": {
+    "API_INFO": {
+      "API_VERSION": 0.2
+    }
+  }
+}
+```
+
+
+
+### Missing parameter
+
+```
+{
+    "errors": {
+        "code": 0,
+        "message": "no nick or user id provided",
+        "http_code": 400,
+        "http_message": "HTTP 400 (GET \/0.2\/user\/curations)"
+    },
+    "meta": {
+        "API_INFO": {
+            "API_VERSION": 0.2
+        }
+    }
+}
+```
+
+
+### Unknown resource
+
+```
+{
+    "errors": {
+        "code": 0,
+        "message": "user not found",
+        "http_code": 400,
+        "http_message": "HTTP 400 (GET \/0.2\/user\/curations)"
+    },
+    "meta": {
+        "API_INFO": {
+            "API_VERSION": 0.2
+        }
+    }
+}
+```
+
+---
+
+
 
 # Account
 
@@ -230,7 +322,7 @@ required
             "url": "https:\/\/fyyd.de\/user\/eazy\/curation\/podcasting",
             "xmlURL": "https:\/\/feeds.fyyd.de\/eazy\/podcasting"
         }
- 
+     
     ]
 }
 ```
@@ -1527,3 +1619,6 @@ Please note: title, url and term add episodes together. Think of a logical OR.
           }
       ]
     }
+```
+
+```
