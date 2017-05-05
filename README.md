@@ -28,7 +28,7 @@ always prefix this for every request or else you'll end up in version 0.1 which 
 
 1. [Preface](#preface)
 2. [Authorization](#authorization)
-3. [Error Handling](#Error Handling)
+3. [Error Handling](#Error-Handling)
 4. [Account](#account)
 5. [User](#user)
 6. [Action](#action)
