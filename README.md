@@ -2,6 +2,8 @@
 
 Documentations version: 0.2
 
+![fyyd logo](https://fyyd.de/images/fyyd2.jpg)
+
 ---
 
 This is the documentation for the API to fyyd, the podcast search engine, directory and slow cooker.
@@ -28,7 +30,7 @@ always prefix this for every request or else you'll end up in version 0.1 which 
 
 1. [Preface](#preface)
 2. [Authorization](#authorization)
-3. [Error Handling](#Error-Handling)
+3. [Error Handling](#error-handling)
 4. [Account](#account)
 5. [User](#user)
 6. [Action](#action)
