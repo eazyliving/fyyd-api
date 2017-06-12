@@ -1,6 +1,6 @@
 # fyyd api
 
-Documentations version: 0.2
+Documentations version: 0.5 (2017-06-12)
 
 ![fyyd logo](https://fyyd.de/images/fyyd2.jpg)
 
@@ -1285,6 +1285,122 @@ Retuns the state of the curation of an episode in a curation.
     },
     "data": {
         "state": 1
+    }
+}
+```
+
+
+
+### [GET /category/curation]
+
+#### Description
+
+Retrieves the curations inside the specified category. The categories system referres to Apple's iTunes Categories. Categories not in Apple's specification are ignored on import.
+
+Please note: Curations' categories calculate automatically by the podcasts' categories of the curated episodes. In future, those categories also could get set manually by the user if desired. At the moment the categories are only calculated and thus could change with every curated episode. 
+
+Additionally you can only find public curations with that function.
+
+#### Parameters
+
+- **category_id (required, int)** the category's id (see /categories)
+- **page (optional, int)** the page you want to address, default: 0
+- **count (optional,int)** the page's size, default: 50
+
+#### Response
+
+```
+{
+    "status": 1,
+    "msg": "ok",
+    "meta": {
+        "paging": {
+            "count": 50,
+            "page": 0,
+            "first_page": 0,
+            "last_page": 0,
+            "next_page": null,
+            "prev_page": null
+        },
+        "API_INFO": {
+            "API_VERSION": 0.2
+        }
+    },
+    "data": {
+        "category": {
+            "id": 5,
+            "slug": "literature",
+            "title": "Literatur",
+            "url": "https:\/\/fyyd.de\/discover\/cat\/literature\/0"
+        },
+        "parent": {
+            "id": 1,
+            "slug": "arts",
+            "title": "Kunst",
+            "url": "https:\/\/fyyd.de\/discover\/cat\/arts\/0"
+        },
+        "curations": [
+            {
+                "title": "Krieg der Poesie",
+                "id": 569,
+                "description": "Alle Episoden aus dem Krieg der Poesie der Geschichtenkapsel",
+                "layoutImageURL": "https:\/\/img.fyyd.de\/curation\/layout\/569.jpg?et=",
+                "thumbImageURL": "https:\/\/img.fyyd.de\/curation\/thumbs\/569.png?et=",
+                "smallImageURL": "https:\/\/img.fyyd.de\/curation\/small\/569.jpg?et=",
+                "microImageURL": "https:\/\/img.fyyd.de\/curation\/micro\/569.png?et=",
+                "public": 1,
+                "slug": "kriegderpoesie",
+                "user_id": 1016,
+                "type": 1,
+                "categories": [
+                    1,
+                    5,
+                    52
+                ],
+                "url": "https:\/\/fyyd.de\/user\/Herrvonspeck\/curation\/kriegderpoesie",
+                "xmlURL": "https:\/\/feeds.fyyd.de\/Herrvonspeck\/kriegderpoesie"
+            },
+            {
+                "title": "Jahresendfestkalender 2016",
+                "id": 1008,
+                "description": "Alle Geschichten, Gedichte, H\u00f6rspiele und Wortklaubereien, die im Rahmen des Jahresendfestkalenders 2016 erschienen.",
+                "layoutImageURL": "https:\/\/img.fyyd.de\/curation\/layout\/1008.jpg?et=",
+                "thumbImageURL": "https:\/\/img.fyyd.de\/curation\/thumbs\/1008.png?et=",
+                "smallImageURL": "https:\/\/img.fyyd.de\/curation\/small\/1008.jpg?et=",
+                "microImageURL": "https:\/\/img.fyyd.de\/curation\/micro\/1008.png?et=",
+                "public": 1,
+                "slug": "jefk2016",
+                "user_id": 1016,
+                "type": 1,
+                "categories": [
+                    1,
+                    5,
+                    52
+                ],
+                "url": "https:\/\/fyyd.de\/user\/Herrvonspeck\/curation\/jefk2016",
+                "xmlURL": "https:\/\/feeds.fyyd.de\/Herrvonspeck\/jefk2016"
+            },
+            {
+                "title": "alboh - h\u00f6rspiele",
+                "id": 1072,
+                "description": "",
+                "layoutImageURL": "https:\/\/fyyd.de\/images\/curation300.png?et=",
+                "thumbImageURL": "https:\/\/fyyd.de\/images\/curation80.png?et=",
+                "smallImageURL": "https:\/\/fyyd.de\/images\/curation300.png?et=",
+                "microImageURL": "https:\/\/fyyd.de\/images\/curation20.png?et=",
+                "public": 1,
+                "slug": "073e20f0dd79291717527c2405bad9ba",
+                "user_id": 1409,
+                "type": 1,
+                "categories": [
+                    1,
+                    5,
+                    39
+                ],
+                "url": "https:\/\/fyyd.de\/user\/alboh\/curation\/073e20f0dd79291717527c2405bad9ba",
+                "xmlURL": "https:\/\/feeds.fyyd.de\/alboh\/073e20f0dd79291717527c2405bad9ba"
+            }
+        ]
     }
 }
 ```
