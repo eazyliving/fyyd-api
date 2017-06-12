@@ -557,6 +557,10 @@ The action always referes to an object inside fyyd's database, which may be:
 
 The action itself is represented by a string you may choose freely. Some of these actions will be used in future features of fyyd. This is not implemented at the time this documentation is written. 
 
+#### Authorization
+
+required
+
 #### Parameters
 
 + **object_id (required, int)** the id of the object
@@ -575,6 +579,10 @@ Returns 204 - No Content
 #### Description
 
 Gets all actions for the authorized user, triggered by the authorized app and filtered by the given criteria.
+
+#### Authorization
+
+required
 
 #### Parameters
 
@@ -700,6 +708,10 @@ Additionally you can address the resultset with {page} and {count}.
 Performes an action to a podcast owned by you (see claim-button on every podcast page).
 
 At the moment, 'check' is the only action to perform. This triggers an update within the next poll cycle.
+
+#### Authorization
+
+required
 
 #### Parameters
 
@@ -1125,7 +1137,9 @@ All about Curations inside fyyd. Retrieve and set.
 
 Returns information about a single curation, given the curation's id. May append episodes, not paged at the moment. If you're authenticated and you request your own curation, non-public curations will be accessable too.
 
+#### Authorization
 
+required for getting your own curation, otherwise you only get public curations.
 
 #### Parameters
 
@@ -1196,6 +1210,10 @@ Returns information about a single curation, given the curation's id. May append
 
 Creates or modifies a curation. 
 
+#### Authorization
+
+required
+
 #### Parameters
 
 - **curation_id (opt, int)** when set, an existing curation is modified
@@ -1219,6 +1237,10 @@ Deletes a curation. Please note: there's no coming back, no questions, no backup
 
 Please note also: You cannot delete your very own personal curation, it's tied to your account.
 
+#### Authorization
+
+required
+
 #### Parameters
 
 - **curation_id (req, int)** the id of the curation you want to delete
@@ -1236,6 +1258,10 @@ returns 204: No content
 Adds OR removes the episode identified by episode_id into the curation identified by curation_id. The curation must be owned by the user identified by the accesstoken. The state of the episode inside this curation toggles with each call, the state is returned inside response's data section.
 
 If you want to enforce a state without knowing what state the episode had before, use **force_state**.
+
+#### Authorization
+
+required
 
 #### Parameters
 
@@ -1266,6 +1292,10 @@ If you want to enforce a state without knowing what state the episode had before
 #### Description
 
 Retuns the state of the curation of an episode in a curation.
+
+#### Authorization
+
+required
 
 #### Parameters
 
@@ -1506,6 +1536,10 @@ Returns information about a single collection, given the collection's id. May ap
 
 Creates or modifies a collection. 
 
+#### Authorization
+
+required
+
 #### Parameters
 
 - **collection_id (opt, int)** when set, an existing collection is modified
@@ -1527,6 +1561,10 @@ Creating and mofiying a collection returns the complete object of the collection
 
 Deletes a collection. Please note: there's no coming back, no questions, no backup. It's deleted!
 
+#### Authorization
+
+required
+
 #### Parameters
 
 - **collection_id (req, int)** the ID of the collection you want to delete
@@ -1544,6 +1582,10 @@ returns 204: No content
 Adds OR removes the podcast identified by podcast_id into or from the collection identified by collection_id. The collection must be owned by the user identified by the accesstoken. The status of the podcast inside this collection toggles. 
 
 If you want to enforce a state without knowing what state the podcast had before, use **force_state**.
+
+#### Authorization
+
+required
 
 #### Parameters
 
@@ -1574,6 +1616,10 @@ If you want to enforce a state without knowing what state the podcast had before
 #### Description
 
 Retuns the state of the collection of a podcast in a collection.
+
+#### Authorization
+
+required
 
 #### Parameters
 
