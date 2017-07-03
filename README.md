@@ -1,6 +1,6 @@
 # fyyd api
 
-Documentations version: 0.5 (2017-06-12)
+Documentations version: 0.6 (2017-07-03)
 
 ![fyyd logo](https://fyyd.de/images/fyyd2.jpg)
 
@@ -646,7 +646,8 @@ Additionally you can address the resultset with {page} and {count}.
 
 #### Parameters
 
-- **podcast_id (required, int)** the podcast's id
+- **podcast_id (required, int)** the podcast's id 
+- *or* **podcast_slug (alternative, string)** the podcast's slug 
 - **page (optional, int)** the page you want to address, default: 0
 - **count (optional,int)** the page's size, default: 50
 
@@ -716,6 +717,7 @@ required
 #### Parameters
 
 - **podcast_id (required, int)** the podcast's id
+- *or* **podcast_slug (alternative, string)** the podcast's slug
 - **action (required, string)** the action to perform:
   * **check** 
 
@@ -1039,6 +1041,7 @@ Gets information about what fyyd thinks, might be a good idea to listen to also.
 #### Parameters
 
 - **podcast_id (required, int)** the Podcast's id
+- *or* **podcast_slug (alternative, string)** the podcast's slug
 - **count (optional,int)** the number of recommended podcasts, default: 10
 
 #### Response
