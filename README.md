@@ -1328,9 +1328,9 @@ required
 
 #### Description
 
-Retrieves the curations inside the specified category. The categories system referres to Apple's iTunes Categories. Categories not in Apple's specification are ignored on import.
+Retrieves the curations inside the specified category. The categories system referres to Apple's iTunes Categories.
 
-Please note: Curations' categories calculate automatically by the podcasts' categories of the curated episodes. In future, those categories also could get set manually by the user if desired. At the moment the categories are only calculated and thus could change with every curated episode. 
+Please note: Curations' categories calculate automatically by the podcasts' categories of the curated episodes. In future, those categories also could get set manually by the user if desired. At the moment the categories are calculated and thus could change with every curated episode. 
 
 Additionally you can only find public curations with that function.
 
