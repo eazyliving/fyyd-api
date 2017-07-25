@@ -657,6 +657,14 @@ Additionally you can address the resultset with {page} and {count}.
       "status": 1,
       "msg": "ok",
       "meta": {
+       "paging": {
+            "count": 1,
+            "page": 0,
+            "first_page": 0,
+            "last_page": 22,
+            "next_page": 1,
+            "prev_page": null
+        },
           "API_INFO": {
               "API_VERSION": 0.2
           }
