@@ -657,14 +657,14 @@ Additionally you can address the resultset with {page} and {count}.
       "status": 1,
       "msg": "ok",
       "meta": {
-       "paging": {
-            "count": 1,
-            "page": 0,
-            "first_page": 0,
-            "last_page": 22,
-            "next_page": 1,
-            "prev_page": null
-        },
+      	"paging": {
+                "count": 1,
+                "page": 0,
+                "first_page": 0,
+                "last_page": 22,
+                "next_page": 1,
+                "prev_page": null
+          },
           "API_INFO": {
               "API_VERSION": 0.2
           }
@@ -1721,6 +1721,7 @@ In contrast to that, podcast_id and podcast_title restrict all episodes to podca
     }
 
 
+
 ### [GET /search/podcast]
 
 #### Description
@@ -1795,6 +1796,74 @@ Please note: title, url and term add episodes together. Think of a logical OR.
           }
       ]
     }
-```
 
+
+### [GET /search/curation]
+
+#### Description
+
+This request tries to find a curation inside fyyd's database, matching any or some of a set of given criteria.
+
+#### Parameters
+
+- **category_id (optional, int)** the id of a podcast category that this curation belongs to
+- **term (optional,string)** a search term to find inside the curation.
+
+
+- **count (optional, int, default: 10)** 
+
+#### Response
+
+```
+{
+    "status": 1,
+    "msg": "ok",
+    "meta": {
+        "API_INFO": {
+            "API_VERSION": 0.2
+        }
+    },
+    "data": [
+        {
+            "title": "Netzpolitik",
+            "id": 623,
+            "description": "Vorsicht, k\u00f6nnte Spuren von Netzpolitik enthalten!",
+            "layoutImageURL": "https:\/\/img.fyyd.de\/curation\/layout\/623.jpg?et=",
+            "thumbImageURL": "https:\/\/img.fyyd.de\/curation\/thumbs\/623.png?et=",
+            "smallImageURL": "https:\/\/img.fyyd.de\/curation\/small\/623.jpg?et=",
+            "microImageURL": "https:\/\/img.fyyd.de\/curation\/micro\/623.png?et=",
+            "public": 1,
+            "slug": "netzpolitik",
+            "user_id": 1000,
+            "type": 1,
+            "categories": [
+                52,
+                39,
+                27
+            ],
+            "url": "https:\/\/fyyd.de\/user\/eazy\/curation\/netzpolitik",
+            "xmlURL": "https:\/\/feeds.fyyd.de\/eazy\/netzpolitik"
+        },
+        {
+            "title": "Empfehlungen von chkpnt",
+            "id": 649,
+            "description": "Von mir f\u00fcr gut befundene Podcastfolgen.",
+            "layoutImageURL": "https:\/\/img.fyyd.de\/curation\/layout\/649.jpg?et=",
+            "thumbImageURL": "https:\/\/img.fyyd.de\/curation\/thumbs\/649.png?et=",
+            "smallImageURL": "https:\/\/img.fyyd.de\/curation\/small\/649.jpg?et=",
+            "microImageURL": "https:\/\/img.fyyd.de\/curation\/micro\/649.png?et=",
+            "public": 1,
+            "slug": "public",
+            "user_id": 1122,
+            "type": 1,
+            "categories": [
+                52,
+                55,
+                39
+            ],
+            "url": "https:\/\/fyyd.de\/user\/chkpnt\/curation\/public",
+            "xmlURL": "https:\/\/feeds.fyyd.de\/chkpnt\/public"
+        }
+    ]
+}
 ```
