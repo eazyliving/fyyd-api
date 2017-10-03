@@ -1,6 +1,6 @@
 # fyyd api
 
-Documentations version: 0.6 (2017-07-03)
+Documentations version: 0.7 (2017-10-03)
 
 ![fyyd logo](https://fyyd.de/images/fyyd2.jpg)
 
@@ -1134,6 +1134,61 @@ Returns information about a single episode
             "description": "Christian hasst Space Hulk, Gunnar liebt es. Fight!"
         }
     }
+
+
+### [GET /episode/latest]
+
+#### Description
+
+Returns information about the last added episodes. Provide a count and/or an ID to be the starting point.
+
+#### Parameters
+
+- **since_id (optional, int)** the last episode's id you know of. Get the episodes added after that ID. Maximum: 1000 episodes.
+- **count (optional, int, default: 20)** get the latest count nums of episodes. 
+
+#### Response
+
+```
+{
+    "status": 1,
+    "msg": "ok",
+    "meta": {
+        "API_INFO": {
+            "API_VERSION": 0.2
+        }
+    },
+    "data": [
+        {
+            "title": "CR123 Biometrische Vollerfassung",
+            "id": 3334,
+            "guid": "http:\/\/chaosradio.ccc.de\/cr123.html",
+            "url": "http:\/\/chaosradio.ccc.de\/cr123.html",
+            "enclosure": "http:\/\/chaosradio.ccc.de\/archive\/chaosradio_123.mp3",
+            "podcast_id": 119,
+            "imgURL": "https:\/\/img.fyyd.de\/pd\/layout\/119.jpg",
+            "pubdate": "2007-05-06T03:20:00+02:00",
+            "duration": 10777,
+            "url_fyyd": "https:\/\/fyyd.de\/episode\/3334",
+            "description": "Fotofahndung, zentrale Fingerabdruckdatei und die Personenkennziffer"
+        },
+        {
+            "title": "CR122 Der Bundestrojaner",
+            "id": 3335,
+            "guid": "http:\/\/chaosradio.ccc.de\/cr122.html",
+            "url": "http:\/\/chaosradio.ccc.de\/cr122.html",
+            "enclosure": "http:\/\/chaosradio.ccc.de\/archive\/chaosradio_122.mp3",
+            "podcast_id": 119,
+            "imgURL": "https:\/\/img.fyyd.de\/pd\/layout\/119.jpg",
+            "pubdate": "2007-03-29T13:00:00+02:00",
+            "duration": 10603,
+            "url_fyyd": "https:\/\/fyyd.de\/episode\/3335",
+            "description": "Nie wurden Ihre Grundrechte so verletzt..."
+        }
+    ]
+}
+```
+
 ---
 
 
