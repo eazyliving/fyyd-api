@@ -1,6 +1,6 @@
 # fyyd api
 
-Documentations version: 0.7 (2017-10-03)
+Documentations version: 0.8 (2017-11-06)
 
 ![fyyd logo](https://fyyd.de/images/fyyd2.jpg)
 
@@ -1088,6 +1088,58 @@ Gets information about what fyyd thinks, might be a good idea to listen to also.
             "description": "Jeden Werktag 10 Minuten Podcast und ein neuer Musiktitel. Themen sind Wissenschaft, Bewusstsein, Geschichte, Film & TV und Entertainment. Unbekanntes & Unbeachtetes, Hintergrund & Oberfl\u00e4che. Mal ernster, mal satirischer aber immer Morgen-Kaffee-tauglich!",
             "subtitle": "Morgenradio 2.0: Jeden Werktag 10 Minuten Unbeachtetes & Unbekanntes aus Gesellschaft und Kultur."
         } 
+    ]
+}
+```
+
+
+
+### [GET /podcast/latest]
+
+#### Description
+
+Returns information about the last added podcasts. Provide a count and/or an ID to be the starting point.
+
+#### Parameters
+
+- **since_id (optional, int)** the last podcast's id you know of. Get the podcasts added after that ID. Maximum: 1000 episodes.
+- **count (optional, int, default: 20)** get the latest count nums of podcasts. 
+
+#### Response
+
+```
+{
+    "status": 1,
+    "msg": "ok",
+    "meta": {
+        "API_INFO": {
+            "API_VERSION": 0.2
+        }
+    },
+    "data": [
+        {
+            "title": "Polytox Podcast (Polytox-Podcast)",
+            "id": 49782,
+            "xmlURL": "http:\/\/polytox.org\/feed\/mp3\/",
+            "htmlURL": "http:\/\/polytox.org\/polytox-podcast",
+            "imgURL": "http:\/\/polytox.org\/wp-content\/cache\/podlove\/a3\/c6f4f8b44edc93e3b7b3ef2205f69c\/polytox-podcast_original.jpg",
+            "status": 200,
+            "slug": "polytox-podcast-polytox-podcast",
+            "layoutImageURL": "https:\/\/img.fyyd.de\/pd\/layout\/49782.jpg",
+            "thumbImageURL": "https:\/\/img.fyyd.de\/pd\/thumbs\/49782.png",
+            "smallImageURL": "https:\/\/img.fyyd.de\/pd\/small\/49782.jpg",
+            "microImageURL": "https:\/\/img.fyyd.de\/pd\/micro\/49782.png",
+            "language": "de",
+            "lastpoll": "2017-11-06T20:10:05+01:00",
+            "generator": "Podlove Podcast Publisher v2.6.2",
+            "categories": [],
+            "lastpub": "2017-11-05T17:04:18+01:00",
+            "rank": null,
+            "url_fyyd": "https:\/\/fyyd.de\/podcast\/polytox-podcast-polytox-podcast\/0",
+            "description": "Der Podcast des Polytox Zines mit Falk Fatal. Jede Folge gibt es Punk, Pop & Papperlapapp rund um die Subkultur.",
+            "subtitle": "Der Subkultur-Podcast",
+            "episode_count": 15
+        }
     ]
 }
 ```
