@@ -1,6 +1,6 @@
 # fyyd api
 
-Documentations version: 0.8 (2017-11-06)
+Documentations version: 0.9 (2017-11-19)
 
 ![fyyd logo](https://fyyd.de/images/fyyd2.jpg)
 
@@ -552,7 +552,7 @@ The action always referes to an object inside fyyd's database, which may be:
 * an episode
 * a podcast
 * a curation
-* a colleciton
+* a collection
 * a user
 
 The action itself is represented by a string you may choose freely. Some of these actions will be used in future features of fyyd. This is not implemented at the time this documentation is written. 
@@ -567,6 +567,26 @@ required
 + **object_type (required, string)** the type of the object. episode, podcast, curation, collection, user
 + **action (required, string)** a free to choose action
 + **metadata (optional, string)** further data you'd like to associate to this action
+
+#### Response
+
+Returns 204 - No Content
+
+
+
+### [POST /action/delete]
+
+#### Description
+
+Deletes an action for the authorized user.
+
+#### Authorization
+
+required
+
+#### Parameters
+
+- **action_id (required, int)** the id of the action
 
 #### Response
 
