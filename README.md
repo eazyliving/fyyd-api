@@ -1,6 +1,6 @@
 # fyyd api
 
-Documentations version: 0.9 (2017-11-19)
+Documentations version: 0.10 (2018-01-30)
 
 ![fyyd logo](https://fyyd.de/images/fyyd2.jpg)
 
@@ -729,6 +729,99 @@ Additionally you can address the resultset with {page} and {count}.
        }
     }
 
+
+
+### [GET /podcast/season]
+
+#### Description
+
+Gets episodes from a season of a podcast with id {podcast_id}. 
+
+Additionally you can address the resultset with {page} and {count}.
+
+#### Parameters
+
+- **podcast_id (required, int)** the podcast's id 
+- *or* **podcast_slug (alternative, string)** the podcast's slug 
+- **season_number (required, int)** the seasons number
+- **episode_number (optional, int)** an episodes number to retrieve
+- **page (optional, int)** the page you want to address, default: 0
+- **count (optional,int)** the page's size, default: 50
+
+#### Response
+
+```
+{
+    "status": 1,
+    "msg": "ok",
+    "meta": {
+        "paging": {
+            "count": 50,
+            "page": 0,
+            "first_page": 0,
+            "last_page": 0,
+            "next_page": null,
+            "prev_page": null
+        },
+        "API_INFO": {
+            "API_VERSION": 0.2
+        }
+    },
+    "data": {
+        "title": "Raumzeit",
+        "id": 703,
+        "xmlURL": "https:\/\/feeds.metaebene.me\/raumzeit\/m4a",
+        "htmlURL": "http:\/\/raumzeit-podcast.de",
+        "imgURL": "https:\/\/meta.metaebene.me\/media\/raumzeit\/raumzeit-icon-1400x1400.jpg",
+        "status": 200,
+        "slug": "raumzeit",
+        "layoutImageURL": "https:\/\/img.fyyd.de\/pd\/layout\/703.jpg",
+        "thumbImageURL": "https:\/\/img.fyyd.de\/pd\/thumbs\/703.png",
+        "smallImageURL": "https:\/\/img.fyyd.de\/pd\/small\/703.jpg",
+        "microImageURL": "https:\/\/img.fyyd.de\/pd\/micro\/703.png",
+        "language": "de",
+        "lastpoll": "2018-01-21T11:04:01+01:00",
+        "generator": "Podlove Podcast Publisher v2.7.0.build467",
+        "categories": [
+            48,
+            62
+        ],
+        "lastpub": "2018-01-20T11:03:23+01:00",
+        "rank": 46,
+        "url_fyyd": "https:\/\/fyyd.de\/podcast\/raumzeit\/0",
+        "description": "Raumzeit ist eine Serie von Gespr\u00e4chen mit Wissenschaftlern, Ingenieuren, Astronauten und Projektleitern \u00fcber Raumfahrt. Jede Episode r\u00fcckt einen Themenbereich in den Fokus und diskutiert ausf\u00fchrlich alle Aspekte und Details.  ",
+        "subtitle": "Raumfahrt und kosmische Angelegenheiten",
+        "episode_count": 68,
+        "episodes": [
+            {
+                "title": "Philae",
+                "id": 24580,
+                "guid": "podlove-2015-04-28t23:48:53+00:00-4a76622f3e60548",
+                "url": "http:\/\/raumzeit-podcast.de\/2015\/06\/16\/rz058-philae\/",
+                "enclosure": "https:\/\/tracking.feedpress.it\/link\/13437\/1885139\/rz058-philae.m4a",
+                "podcast_id": 703,
+                "imgURL": "https:\/\/meta.metaebene.me\/media\/raumzeit\/rz058-philae.jpg",
+                "pubdate": "2015-06-16T19:51:06+02:00",
+                "duration": 5587,
+                "status": 200,
+                "num_season": 2,
+                "num_episode": 58,
+                "url_fyyd": "https:\/\/fyyd.de\/episode\/24580",
+                "description": "...",
+                "chapters": [
+                    {
+                        "start": "00:00:00.000",
+                        "start_ms": 0,
+                        "title": "Intro"
+                    }
+                  
+                ],
+                "content_type": "audio\/mp4"
+            }
+      ]
+   }
+}
+```
 
 ### [POST /podcast/action]
 
