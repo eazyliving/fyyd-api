@@ -1258,6 +1258,69 @@ Returns information about the last added podcasts. Provide a count and/or an ID 
 }
 ```
 
+### [GET /podcast/collections]
+
+#### Description
+
+Returns information about the collections this podcast is collected in.
+
+#### Parameters
+
+- **podcast_id (required, int)** the Podcast's id
+- *or* **podcast_slug (alternative, string)** the podcast's slug
+- **count (optional,int)** the number of recommended podcasts, default: 10
+- **page (optional,int)** the page of the result, default: 0
+
+#### Response
+
+```
+
+    "status": 1,
+    "msg": "ok",
+    "meta": {
+        "paging": {
+            "count": 3,
+            "page": 0,
+            "first_page": 0,
+            "last_page": 19,
+            "next_page": 1,
+            "prev_page": null
+        },
+        "API_INFO": {
+            "API_VERSION": 0.2
+        }
+    },
+    "data": [
+        {
+            "title": "H\u00f6rt das!",
+            "id": 48,
+            "description": "",
+            "layoutImageURL": "https:\/\/fyyd.de\/images\/collection300.png?et=",
+            "smallImageURL": "https:\/\/fyyd.de\/images\/collection300.png?et=",
+            "thumbImageURL": "https:\/\/fyyd.de\/images\/collection80.png?et=",
+            "microImageURL": "https:\/\/fyyd.de\/images\/collection20.png?et=",
+            "slug": "88610109b7c51842990bcfdbc1938696",
+            "user_id": 1111,
+            "url": "https:\/\/fyyd.de\/user\/Lesefreude\/collection\/88610109b7c51842990bcfdbc1938696"
+        },
+        {
+            "title": "Bildung\/Schule\/Sozio",
+            "id": 64,
+            "description": "",
+            "layoutImageURL": "https:\/\/fyyd.de\/images\/collection300.png?et=",
+            "smallImageURL": "https:\/\/fyyd.de\/images\/collection300.png?et=",
+            "thumbImageURL": "https:\/\/fyyd.de\/images\/collection80.png?et=",
+            "microImageURL": "https:\/\/fyyd.de\/images\/collection20.png?et=",
+            "slug": "bildung-schule-sozio",
+            "user_id": 1135,
+            "url": "https:\/\/fyyd.de\/user\/Anke\/collection\/bildung-schule-sozio"
+        }
+    ]
+}
+```
+
+
+
 ---
 
 
@@ -1350,6 +1413,84 @@ Returns information about the last added episodes. Provide a count and/or an ID 
             "duration": 10603,
             "url_fyyd": "https:\/\/fyyd.de\/episode\/3335",
             "description": "Nie wurden Ihre Grundrechte so verletzt..."
+        }
+    ]
+}
+```
+
+
+
+### [GET /episode/curations]
+
+#### Description
+
+Returns information about the curations this episode is in.
+
+#### Parameters
+
+- **episode_id (required, int)** the episode's id
+- **count (optional,int)** the number of recommended podcasts, default: 10
+- **page (optional,int)** the page of the result, default: 0
+
+#### Response
+
+```
+{
+    "status": 1,
+    "msg": "ok",
+    "meta": {
+        "paging": {
+            "count": 2,
+            "page": 0,
+            "first_page": 0,
+            "last_page": 1,
+            "next_page": 1,
+            "prev_page": null
+        },
+        "API_INFO": {
+            "API_VERSION": 0.2
+        }
+    },
+    "data": [
+        {
+            "title": "Museumsfeed",
+            "id": 593,
+            "description": "Eine Zusammenstellung von Podcast-Episoden mit Museums- & Ausstellungsfokus: Besuche, Menschen, Projekte...",
+            "layoutImageURL": "https:\/\/img.fyyd.de\/curation\/layout\/593.jpg?et=",
+            "thumbImageURL": "https:\/\/img.fyyd.de\/curation\/thumbs\/593.png?et=",
+            "smallImageURL": "https:\/\/img.fyyd.de\/curation\/small\/593.jpg?et=",
+            "microImageURL": "https:\/\/img.fyyd.de\/curation\/micro\/593.png?et=",
+            "public": 1,
+            "slug": "museumsfeed",
+            "user_id": 1097,
+            "type": 1,
+            "categories": [
+                52,
+                1,
+                15
+            ],
+            "url": "https:\/\/fyyd.de\/user\/tinowa\/curation\/museumsfeed",
+            "xmlURL": "https:\/\/feeds.fyyd.de\/tinowa\/museumsfeed"
+        },
+        {
+            "title": "Netzpolitik",
+            "id": 623,
+            "description": "Vorsicht, k\u00f6nnte Spuren von Netzpolitik enthalten!",
+            "layoutImageURL": "https:\/\/img.fyyd.de\/curation\/layout\/623.jpg?et=",
+            "thumbImageURL": "https:\/\/img.fyyd.de\/curation\/thumbs\/623.png?et=",
+            "smallImageURL": "https:\/\/img.fyyd.de\/curation\/small\/623.jpg?et=",
+            "microImageURL": "https:\/\/img.fyyd.de\/curation\/micro\/623.png?et=",
+            "public": 1,
+            "slug": "netzpolitik",
+            "user_id": 1000,
+            "type": 1,
+            "categories": [
+                52,
+                39,
+                27
+            ],
+            "url": "https:\/\/fyyd.de\/user\/eazy\/curation\/netzpolitik",
+            "xmlURL": "https:\/\/feeds.fyyd.de\/eazy\/netzpolitik"
         }
     ]
 }
