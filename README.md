@@ -39,6 +39,7 @@ always prefix this for every request or else you'll end up in version 0.1 which 
 9. [Curations](#curations)
 10. [Collections](#collections)
 11. [Search](#search)
+12. [3rd party interfaces](#3rd-party-interfaces)
 
 ---
 
@@ -2137,3 +2138,28 @@ This request tries to find users based on nick and/or fullname.
 }
 ```
 
+----
+
+
+
+# 3rd party interfaces
+
+As this API grows over time, others have made great effords to create implementations for several languages and systems. 
+
+
+
+## FyydKit 
+
+[FyydKit](https://github.com/funkenstrahlen/FyydKit) is an implementation for Apple's swift. Stefan Trauth created it while developing [Skoon](https://skoon.stefantrauth.de/), an iOS app for browsing and administrating fyyd's curations. FyydKit is up to date with the API's v0.2.
+
+
+
+##fyydAPI
+
+[fyydAPI](https://github.com/JeanetteMueller/fyydAPI) is another switft implemenation but for v0.1. Jeanette Müller created it for her great podcatcher [Podcat](http://www.podc.at/). You can manage and browse your curations and collections inside podcat. 
+
+
+
+##fyyd_ex
+
+[fyyd_ex](https://github.com/optikfluffel/fyyd_ex) is an implementation for Elixir. It's WIP at the moment, but looks great to me. Well... I don't have the slightes idea of Elixir, but it really looks great, what [optikfluffel](https://twitter.com/optikfluffel) (remember superfav.de?) did there :)
