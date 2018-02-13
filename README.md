@@ -2295,12 +2295,12 @@ As this API grows over time, others have made great effords to create implementa
 
 
 
-##fyydAPI
+## fyydAPI
 
 [fyydAPI](https://github.com/JeanetteMueller/fyydAPI) is another switft implemenation but for v0.1. Jeanette Müller created it for her great podcatcher [Podcat](http://www.podc.at/). You can manage and browse your curations and collections inside podcat. 
 
 
 
-##fyyd_ex
+## fyyd_ex
 
 [fyyd_ex](https://github.com/optikfluffel/fyyd_ex) is an implementation for Elixir. It's WIP at the moment, but looks great to me. Well... I don't have the slightes idea of Elixir, but it really looks great, what [optikfluffel](https://twitter.com/optikfluffel) (remember superfav.de?) did there :)
