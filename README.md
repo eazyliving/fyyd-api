@@ -1,6 +1,6 @@
 # fyyd api
 
-Documentations version: 0.10 (2018-01-30)
+Documentations version: 0.10 (2018-02-13)
 
 ![fyyd logo](https://fyyd.de/images/fyyd2.jpg)
 
@@ -1876,8 +1876,6 @@ required
 
 
 
-
-
 ---
 
 
@@ -2087,3 +2085,55 @@ This request tries to find a curation inside fyyd's database, matching any or so
     ]
 }
 ```
+### [GET /search/user]
+
+#### Description
+
+This request tries to find users based on nick and/or fullname.
+
+#### Parameters
+
+- **nick (optional, string)** a nick or part of it
+- **fullname (optional,string)** a full name or part of it
+
+
+- **count (optional, int, default: 10)** 
+
+#### Response
+
+```
+{
+    "status": 1,
+    "msg": "ok",
+    "meta": {
+        "API_INFO": {
+            "API_VERSION": 0.2
+        }
+    },
+    "data": [
+       {
+            "nick": "funkenstrahlen",
+            "id": 1084,
+            "fullname": "Stefan Trauth",
+            "bio": "Podcasting, Netzpolitik, Development. Alles was mir so begegnet eben.",
+            "url": null,
+            "layoutImageURL": "https:\/\/img.fyyd.de\/user\/layout\/1084.jpg?et=877005a911b519ff36265925146c12d7",
+            "thumbImageURL": "https:\/\/img.fyyd.de\/user\/thumbs\/1084.png?et=877005a911b519ff36265925146c12d7",
+            "smallImageURL": "https:\/\/img.fyyd.de\/user\/small\/1084.jpg?et=877005a911b519ff36265925146c12d7",
+            "microImageURL": "https:\/\/img.fyyd.de\/user\/micro\/1084.png?et=877005a911b519ff36265925146c12d7"
+        },
+       {
+            "nick": "eazy",
+            "id": 1000,
+            "fullname": "Christian Bednarek",
+            "bio": "Ich bin's nur, der Christian!",
+            "url": "https:\/\/fyyd.de\/",
+            "layoutImageURL": "https:\/\/img.fyyd.de\/user\/layout\/1000.jpg?et=88e5b04ddcc4c2c059aabefd84d15039",
+            "thumbImageURL": "https:\/\/img.fyyd.de\/user\/thumbs\/1000.png?et=88e5b04ddcc4c2c059aabefd84d15039",
+            "smallImageURL": "https:\/\/img.fyyd.de\/user\/small\/1000.jpg?et=88e5b04ddcc4c2c059aabefd84d15039",
+            "microImageURL": "https:\/\/img.fyyd.de\/user\/micro\/1000.png?et=88e5b04ddcc4c2c059aabefd84d15039"
+        }
+    ]
+}
+```
+
