@@ -1,6 +1,6 @@
 # fyyd api
 
-Documentations version: 0.10 (2018-02-13)
+Documentations version: 0.11 (2018-02-16)
 
 ![fyyd logo](https://fyyd.de/images/fyyd2.jpg)
 
@@ -1595,6 +1595,7 @@ required
 - **slug (opt, string)** the slug to set for this curation. If not set while creation, the title will be slugified. *When set, but empty while modifying a curation, also a slugified title will overwrite the existing slug*.
 - **public (opt, int, def: 0)** defines, if this curation will be set to public and thus accessable for all.
 - **image (opt, binary)** upload an optional image for the curation. Use multipart/form-data ([RFC 2388](http://www.ietf.org/rfc/rfc2388.txt)) and provide a content-type.
+- **categories (opt, array)** A json encoded array of category IDs. These are the same you get by requesting /categories
 
 #### Response
 
