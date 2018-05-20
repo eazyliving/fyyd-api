@@ -1,6 +1,6 @@
 # fyyd api
 
-Documentations version: 0.11 (2018-02-16)
+Documentations version: 0.12 (2018-05-20)
 
 ![fyyd logo](https://fyyd.de/images/fyyd2.jpg)
 
@@ -39,7 +39,8 @@ always prefix this for every request or else you'll end up in version 0.1 which 
 9. [Curations](#curations)
 10. [Collections](#collections)
 11. [Search](#search)
-12. [3rd party interfaces](#3rd-party-interfaces)
+12. [Feature](#feature)
+13. [3rd party interfaces](#3rd-party-interfaces)
 
 ---
 
@@ -2281,6 +2282,89 @@ This request tries to find users based on nick and/or fullname.
 ```
 
 ----
+
+
+
+# Feature
+
+This will be an additional, a higher level interface to discover podcasts. You could take all the data the podcasts API deliveres, ranks including, to calculate your own hot and wanted stuff. But why not take my data? Here we are with the first request: Hot podcasts. 
+
+### [GET /feature/podcast/hot]
+
+#### Description
+
+This request delivers the hottest podcasts in fyyd's directory. This are NOT charts. This one is about the most active (listener and producer) podcasts of the last eight days. 
+
+#### Parameters
+
+- **count (optional, int, default: 10)** 
+
+#### Response
+
+```
+{
+    "status": 1,
+    "msg": "ok",
+    "meta": {
+        "API_INFO": {
+            "API_VERSION": 0.2
+        },
+        "SERVER": "195.201.115.6",
+        "duration": 1
+    },
+    "data": [
+        {
+            "title": "\u00d61 Betrifft Geschichte",
+            "id": 41507,
+            "xmlURL": "http:\/\/static.orf.at\/podcast\/oe1\/oe1_geschichte.xml",
+            "htmlURL": "http:\/\/oe1.orf.at\/podcast\/",
+            "imgURL": "http:\/\/files.orf.at\/podcast\/oe1\/img\/oe1_geschichte.png",
+            "status": 200,
+            "slug": "oe1-betrifft-geschichte",
+            "language": "de",
+            "lastpoll": "2018-05-20T18:37:18+02:00",
+            "generator": "ORF.at Publisher for Podcast Services v1.0",
+            "categories": [
+                48,
+                51
+            ],
+            "lastpub": "2018-05-18T00:00:00+02:00",
+            "rank": 138,
+            "url_fyyd": "https:\/\/fyyd.de\/podcast\/oe1-betrifft-geschichte\/0",
+            "description": "Ob zu Rittern oder Terroristen - Expertinnen und Experten werden so geschickt gefragt, dass sich gut und gerne f\u00fcnf Minuten zuh\u00f6ren l\u00e4sst, wie sich eine Antwort entfaltet. Von Montag bis Freitag.",
+            "subtitle": "Fachleute erz\u00e4hlen",
+            "episode_count": 508
+        },
+        {
+            "title": "Geschichtenkapsel",
+            "id": 5095,
+            "xmlURL": "http:\/\/geschichtenkapsel.de\/feed\/mp3\/",
+            "htmlURL": "http:\/\/geschichtenkapsel.de",
+            "imgURL": "http:\/\/geschichtenkapsel.de\/wordpress\/wp-content\/uploads\/2018\/04\/KapsleLogo_Geschichtenkapsel-1024x1024.png",
+            "status": 200,
+            "slug": "geschichtenkapsel",
+            "language": "de",
+            "lastpoll": "2018-05-20T18:38:08+02:00",
+            "generator": "Podlove Podcast Publisher v2.7.6",
+            "categories": [
+                1,
+                5,
+                52,
+                21,
+                24
+            ],
+            "lastpub": "2018-05-20T13:37:39+02:00",
+            "rank": 94,
+            "url_fyyd": "https:\/\/fyyd.de\/podcast\/geschichtenkapsel\/0",
+            "description": "L\u00e4sst du dir gerne Erz\u00e4hlungen, Kurzgeschichten, M\u00e4rchen oder Fabeln ins Ohr s\u00e4useln? Dann bist du hier richtig! In diesem Podcast gibt es selbstgeschriebene Geschichten, die du sonst nirgendwo findest! \u00d6ffne die Geschichtenkapsel und lasse dir fabelhafte Fantastereien, grausigen Grusel und wilde Worte um die Ohren fliegen!",
+            "subtitle": "Lass dir was erz\u00e4hlen",
+            "episode_count": 156
+        }
+  ]
+}
+```
+
+-----
 
 
 
