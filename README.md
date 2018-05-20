@@ -2293,11 +2293,12 @@ This will be an additional, a higher level interface to discover podcasts. You c
 
 #### Description
 
-This request delivers the hottest podcasts in fyyd's directory. This are NOT charts. This one is about the most active (listener and producer) podcasts of the last eight days. 
+This request delivers the hottest podcasts in fyyd's directory. This are NOT charts. This one is about the most active (listener and producer) podcasts of the last eight days. Hotness values are created once a day for all languages with 50 or more podcasts listed. 
 
 #### Parameters
 
 - **count (optional, int, default: 10)** 
+- **language (optional, var, default: none)** 
 
 #### Response
 
@@ -2364,7 +2365,44 @@ This request delivers the hottest podcasts in fyyd's directory. This are NOT cha
 }
 ```
 
------
+
+
+### [GET /feature/podcast/hot/languages]
+
+#### Description
+
+As described above, only for all languages with 50 or more podcasts listed, hotness values are calculated. To get these languages, take this request.
+
+#### Parameters
+
+none
+
+#### Response
+
+```
+{
+    "status": 1,
+    "msg": "ok",
+    "meta": {
+        "API_INFO": {
+            "API_VERSION": 0.2
+        },
+        "SERVER": "195.201.115.6",
+        "duration": 0
+    },
+    "data": [
+        "en",
+        "fr",
+        "ru",
+        "it",
+        "de",
+        "es",
+        "nl"
+    ]
+}
+```
+
+------
 
 
 
