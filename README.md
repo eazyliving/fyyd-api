@@ -1,6 +1,6 @@
 # fyyd api
 
-Documentations version: 0.12 (2018-05-20)
+Documentations version: 0.13 (2018-10-03)
 
 ![fyyd logo](https://fyyd.de/images/fyyd2.jpg)
 
@@ -39,8 +39,9 @@ always prefix this for every request or else you'll end up in version 0.1 which 
 9. [Curations](#curations)
 10. [Collections](#collections)
 11. [Search](#search)
-12. [Feature](#feature)
-13. [3rd party interfaces](#3rd-party-interfaces)
+12. [Alerts](#alerts)
+13. [Feature](#feature)
+14. [3rd party interfaces](#3rd-party-interfaces)
 
 ---
 
@@ -48,7 +49,7 @@ always prefix this for every request or else you'll end up in version 0.1 which 
 
 Podcasts and their metadata always has been a fascinating subject for me. So much data, so few approaches to collect and bring it to good use.
 
-Now it's 2017 and there are a few (I know of three, maybe four) more or less experimental projects to work with this gigantic loads of data. One of that projects is fyyd, my attempt to create a 
+Now it's 2017 and there are a few (I know of ~~three~~ two, maybe ~~four~~ three) more or less experimental projects to work with this gigantic loads of data. One of that projects is fyyd, my attempt to create a 
 
 * podcast search engine
 * podcast directory
@@ -2017,6 +2018,117 @@ required
     }
 }
 ```
+
+
+
+------
+
+
+
+
+
+# Alerts
+
+Here you can request, modify and create alerts. Alerts are automatically fired searches that aggregate found episodes. 
+
+### [GET /alert/[episodes]]
+
+#### Description
+
+This request outputs all data (optionally including episodes) for an alert 
+
+#### Parameters
+
+- **alert_id (required, int)** the alert's id.
+
+#### Response
+
+```
+{
+    "status": 1,
+    "msg": "ok",
+    "meta": {
+        "API_INFO": {
+            "API_VERSION": "0.2"
+        },
+        "SERVER": "195.201.115.6",
+        "duration": 0
+    },
+    "data": {
+        "id": 4711,
+        "term": "brexit",
+        "slug": "brexit",
+        "lastcheck": "2018-10-03 17:27:00",
+        "dirty": 0,
+        "dirty_feed": 0,
+        "active": 1,
+        "schedule": 3,
+        "episodes": [
+            {
+                "title": "Nordirland: Warum eine Wiedervereinigung mit Irland kein Tabu ist",
+                "id": 3046029,
+                "guid": "f720fd08-8a37-49ef-8b7b-e9670db98bea",
+                "url": "",
+                "enclosure": "http:\/\/podcasts.srf.ch\/world\/audio\/Zwischen-den-Schlagzeilen_03-10-2018-1017.1538559667163.mp3?assetId=f720fd08-8a37-49ef-8b7b-e9670db98bea",
+                "podcast_id": 48792,
+                "imgURL": "https:\/\/img-1.fyyd.de\/pd\/layout\/48792effbaec22b537b263c09a3984805a407.jpg",
+                "pubdate": "2018-10-03T10:17:00+02:00",
+                "duration": 806,
+                "status": 200,
+                "num_season": 0,
+                "num_episode": 0,
+                "inserted": "2018-10-03T12:00:02+02:00",
+                "url_fyyd": "https:\/\/api.fyyd.de\/episode\/3046029",
+                "description": "Harter oder weicher Brexit: noch ist das Scheidungsprozedere von der EU offen. In Nordirland geschieht zur Zeit \u00dcberraschendes. Aktuelle Umfragen zeigen, dass im Fall eines harten Brexit eine Mehrheit f\u00fcr eine Wiedervereinigung mit Irland ist. Nicht nur Katholiken, sondern auch Protestanten.\r\n\r\nWas steht f\u00fcr Nordirland beim Brexit auf dem Spiel? Und warum muss man bef\u00fcrchten, dass alte innerirische Konflikte wieder aufbrechen k\u00f6nnten? SRF-Korrespondent Martin Alioth erkl\u00e4rt.",
+                "content_type": "audio\/mpeg",
+                "why": ""
+            }
+        ]
+    }
+}
+```
+
+
+
+### [POST /alert]
+
+#### Description
+
+Creates or modifies an alert. 
+
+#### Authorization
+
+required
+
+#### Parameters
+
+- **alert_id (opt, int)** when set, an existing alert is modified
+- **term (req when created, string)** the term to search for 
+- **slug (opt, string)** the slug to set for this alert. If not set while creation, the term will be slugified. *When set, but empty while modifying an alert, a slugified title will overwrite the existing slug*.
+
+#### Response
+
+Creating and mofiying an alert returns the complete object of the alert as in GET /curation.
+
+
+
+### [POST /alert/delete]
+
+#### Description
+
+Deletes an alert. Please note: there's no coming back, no questions, no backup. It's deleted!
+
+#### Authorization
+
+required
+
+#### Parameters
+
+- **alert_id (req, int)** the id of the alert you want to delete
+
+#### Response
+
+returns 204: No content
 
 
 
