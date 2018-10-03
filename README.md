@@ -38,8 +38,8 @@ always prefix this for every request or else you'll end up in version 0.1 which 
 8. [Episode](#episode)
 9. [Curations](#curations)
 10. [Collections](#collections)
-11. [Search](#search)
-12. [Alerts](#alerts)
+11. [Alerts](#alerts)
+12. [Search](#search)
 13. [Feature](#feature)
 14. [3rd party interfaces](#3rd-party-interfaces)
 
