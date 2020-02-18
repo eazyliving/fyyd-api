@@ -1,6 +1,6 @@
 # fyyd api
 
-Documentations version: 0.13 (2018-10-03)
+Documentations version: 0.14 (2020-02-18)
 
 ![fyyd logo](https://fyyd.de/images/fyyd2.jpg)
 
@@ -1710,6 +1710,7 @@ Additionally you can only find public curations with that function.
 #### Parameters
 
 - **category_id (required, int)** the category's id (see /categories)
+- *or* **category_slug (required, string)** the category's slug  
 - **page (optional, int)** the page you want to address, default: 0
 - **count (optional,int)** the page's size, default: 50
 
