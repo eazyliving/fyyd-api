@@ -1,6 +1,6 @@
 # fyyd api
 
-Documentations version: 0.14 (2020-02-18)
+Documentations version: 0.13 (2018-10-03)
 
 ![fyyd logo](https://fyyd.de/images/fyyd2.jpg)
 
@@ -77,9 +77,7 @@ Authorization for 3rd party apps and services is provided with an oauth2 interfa
 
 ## App registration
 
-First step is to register your app at fyyd.de. At the time of writing this documentation (2017-04-17), you have to be a registered developer at fyyd. This is not as a big deal as it might sound, but I'd like to know, who is using auth with the API and what happens. Just register an account at [fyyd.de](https://fyyd.de/user-new) and give me a short note that you'd like to use the API via [mail](#mailto:info@fyyd.de).
-
-When this is done, head to  [https://fyyd.de/dev/app/](https://fyyd.de/dev/app/) to create the app's registration at fyyd. 
+First step is to register your app at fyyd.de. To do that, head to  [https://fyyd.de/dev/app/](https://fyyd.de/dev/app/).
 
 You then create the credentials and maybe an accesstoken (which only works on app context, which is non existent at this time).
 
