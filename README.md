@@ -1,6 +1,6 @@
 # fyyd api
 
-Documentations version: 0.13 (2018-10-03)
+Documentations version: 0.14 (2020-02-17)
 
 ![fyyd logo](https://fyyd.de/images/fyyd2.jpg)
 
