@@ -1,6 +1,6 @@
 # fyyd api
 
-Documentations version: 0.14 (2020-02-17)
+Documentations version: 0.15 (2020-09-22)
 
 ![fyyd logo](https://fyyd.de/images/fyyd2.jpg)
 
@@ -2391,6 +2391,77 @@ This request tries to find users based on nick and/or fullname.
     ]
 }
 ```
+### [GET /search/color]
+
+#### Description
+
+This request compares the most significant color found in the podcasts logo to a given RGB value. 
+
+#### Parameters
+
+- **rgb** (**required**, **string**) hexadecimal RGB values as RRGGBB
+
+
+- **count (optional, int, default: 10)** 
+
+#### Response
+
+```
+{
+    "status": 1,
+    "msg": "ok",
+    "meta": {
+        "count": 1,
+        "API_INFO": {
+            "API_VERSION": "0.2"
+        },
+        "SERVER": "195.201.115.6",
+        "duration": 1
+    },
+    "data": [
+        {
+            "title": "Stormpeonz",
+            "id": 54528,
+            "xmlURL": "http:\/\/www.stormpeonz.com\/feed\/peonzradio-feed\/",
+            "htmlURL": "http:\/\/www.stormpeonz.com",
+            "imgURL": "http:\/\/www.stormpeonz.com\/wp-content\/uploads\/2019\/02\/Podcast.png",
+            "status": 200,
+            "slug": "stormpeonz",
+            "layoutImageURL": "https:\/\/img-1.fyyd.de\/pd\/layout\/5452850f1f8d7dc1331b7bc9d71e01225b87b.jpg",
+            "thumbImageURL": "https:\/\/img-1.fyyd.de\/pd\/thumbs\/5452850f1f8d7dc1331b7bc9d71e01225b87b.png",
+            "smallImageURL": "https:\/\/img-1.fyyd.de\/pd\/small\/5452850f1f8d7dc1331b7bc9d71e01225b87b.jpg",
+            "microImageURL": "https:\/\/img-1.fyyd.de\/pd\/micro\/5452850f1f8d7dc1331b7bc9d71e01225b87b.png",
+            "language": "de",
+            "lastpoll": "2018-12-12T09:08:41+01:00",
+            "generator": "Podlove Podcast Publisher v3.0.4",
+            "categories": [
+                142,
+                150
+            ],
+            "lastpub": "2020-07-27T13:19:15+02:00",
+            "rank": 2,
+            "url_fyyd": "https:\/\/fyyd.de\/podcast\/stormpeonz\/0",
+            "description": "Einmal die Woche besprechen wir das aktuelle Weltgeschehen aus dem Bereich Gaming, oder aber auch nicht so aktuelle Sachen.",
+            "subtitle": "Der w\u00f6chentliche Gaming Podcast mit Sven und Thomas.",
+            "tcolor": "#fff",
+            "color": "#103424",
+            "episode_count": "33",
+            "iflags": null,
+            "paymentURL": null,
+            "author": "Thomas, Sven",
+            "stats": {
+                "medianduration": 0,
+                "medianduration_string": "0m",
+                "episodecount": 33,
+                "pubinterval": 7,
+                "pubinterval_string": "w\u00f6chentlich",
+                "pubinterval_value": 7,
+                "pubinterval_type": 2
+            }
+        }
+    ]
+}
+```
 
 ----
 
@@ -2538,3 +2609,4 @@ As this API grows over time, others have made great effords to create implementa
 ## fyyd_ex
 
 [fyyd_ex](https://github.com/optikfluffel/fyyd_ex) is an implementation for Elixir. It's WIP at the moment, but looks great to me. Well... I don't have the slightes idea of Elixir, but it really looks great, what [optikfluffel](https://twitter.com/optikfluffel) (remember superfav.de?) did there :)
+
