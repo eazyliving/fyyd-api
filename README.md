@@ -2206,6 +2206,8 @@ This request tries to find a podcast inside fyyd's database, matching any or som
 - **title (optional, string)** the podcasts's title. Search might use parts of the string to find the podcast.
 - **url (optional, string)** the podcast's url as stated inside the podcast's feed.
 - **term (optional,string)** a search term to find inside the podcast.
+- **langauge (optional,string)** filters results by language (de, en...)
+- **generator (optional,string)** filters results by generator (podlove, castopod etc...)
 
 Please note: title, url and term add episodes together. Think of a logical OR.
 
